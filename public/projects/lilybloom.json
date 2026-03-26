@@ -1,0 +1,33 @@
+{
+    "heroSection": {
+        "title": "Lily Bloom Bakery",
+        "subTitle": "Full-Stack Showcase Website",
+        "description": "A beautiful, multilingual online store + admin dashboard built and deployed for a local Brooklyn bakery.",
+        "liveWebsite": "https://lilybloom-showcase.com/"
+    },
+    "techStack": [
+        "Next.js", "Spring Boot", "MongoDB", "TypeScript", "Javascript", "AWS Elastic Beanstalk", "AWS Amplify", "AWS CloudFront", "AWS S3", "Material UI", "React-Admin"
+    ],
+    "mainContent": {
+        "overview": "Developed and launched a complete full-stack showcase website for a local bakery. The platform features server-side rendering, multilingual support (English & Simplified Chinese), a full admin dashboard, and an automated bulk import pipeline.",
+        "keyFeature": [
+            {
+                "header": "SSR + Multilingual",
+                "body": "Next.js 15 App Router with full English / Simplified Chinese support"
+            },
+            {
+                "header": "Admin Dashboard",
+                "body": "Secure backend dashboard for menu, orders, and content management"
+            },
+            {
+                "header": "Bulk Import Pipeline",
+                "body": "CSV / XLSX + image ZIP upload → automatic extraction → S3 staging"
+            },
+            {
+                "header": "Scalable AWS Deployment",
+                "body": "Elastic Beanstalk, Amplify, CloudFront, and S3 for fast global delivery"
+            }
+        ]
+    }
+
+}
