@@ -13,3 +13,14 @@ export async function getProjectData(slug: string): Promise<ProjectContentJson |
     }
     
 }
+
+export async function getAllProjectNames(): Promise<string[]> {
+    try {
+        const projectPath = path.join(process.cwd(), 'public', 'projects');
+        const allFilenames = await fs.readdir(projectPath);
+        const jsonFileNames = allFilenames.filter(filename => filename.endsWith(".json")).map(filename => filename.replace(".json", ""));
+        return jsonFileNames;
+    } catch (error) {
+        return [];
+    }
+}
