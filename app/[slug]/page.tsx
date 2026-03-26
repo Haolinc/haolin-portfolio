@@ -2,7 +2,7 @@ import TopNavigation from './components/TopNavigation';
 import HeroSection from './components/HeroSection';
 import MainContent from './components/MainContent';
 import SideBar from './components/SideBar';
-import { ProjectContentJson } from './jsonTypes';
+import { ProjectContentJson } from '@/types/projectJsonTypes';
 import { getProjectData } from './slugConverter';
 import { notFound } from 'next/navigation';
 

@@ -1,0 +1,31 @@
+{
+    "heroSection": {
+        "title": "Epic Seven Automation",
+        "subTitle": "Python + OpenCV Game Bot",
+        "description": "Autonomous in-game automation tool using image recognition to execute repetitive tasks.",
+        "githubWebsite": "https://github.com/Haolinc/Epic-Seven-Automation"
+    },
+    "techStack": [
+        "Python",
+        "OpenCV",
+        "Android Developer Bridge"
+    ],
+    "mainContent": {
+        "overview": "Engineered a Python + OpenCV automation tool using image recognition to execute repetitive in-game tasks autonomously.",
+        "keyFeature": [
+            {
+                "header": "Image Recognition",
+                "body": "OpenCV computer vision detects game elements automatically"
+            },
+            {
+                "header": "Autonomous Execution",
+                "body": "Handles repetitive tasks such as shop refresh and arena battles"
+            },
+            {
+                "header": "Multiple Emulator And Screen Size Ready",
+                "body": "Fully functional automation script for multiple emulators and screen size"
+            }
+        ]
+    },
+    "lastUpdate": "2025-02-12"
+}

@@ -1,5 +1,5 @@
 import { Download } from 'lucide-react';
-import { HeroSectionJson } from '../jsonTypes'
+import { HeroSectionJson } from '../../../types/projectJsonTypes'
 export default function HeroSection({heroSectionJson}: {heroSectionJson: HeroSectionJson}){
     return (
         <header className="pt-20 bg-gradient-to-br from-slate-50 to-white border-b">

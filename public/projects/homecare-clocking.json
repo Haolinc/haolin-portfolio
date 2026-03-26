@@ -1,0 +1,32 @@
+{
+    "heroSection": {
+        "title": "Homecare Clocking",
+        "subTitle": "React Web + Android App",
+        "description": "React web utility and companion Android app to automate employee attendance tracking and minimize manual logging.",
+        "liveWebsite": "https://haolinc.github.io/Homecare-Clocking-Dial-Uri-Generator/"
+    },
+    "techStack": [
+        "React",
+        "Kotlin",
+        "Jetpack Compose",
+        "TypeScript"
+    ],
+    "mainContent": {
+        "overview": "Created a React web utility and companion Android app (Kotlin + Jetpack Compose) to automate employee attendance tracking and minimize manual logging.",
+        "keyFeature": [
+            {
+                "header": "Web + Mobile Companion",
+                "body": "React web utility paired with a native Android app"
+            },
+            {
+                "header": "Zero Manual Logging",
+                "body": "Automated URI generator for instant employee clock-in"
+            },
+            {
+                "header": "Real-time Attendance",
+                "body": "Eliminates paper logs and manual entry errors"
+            }
+        ]
+    },
+    "lastUpdate": "2025-09-24"
+}

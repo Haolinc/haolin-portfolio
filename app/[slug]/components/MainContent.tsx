@@ -1,9 +1,8 @@
-import { MainContentJson } from "../jsonTypes";
+import { MainContentJson } from "@/types/projectJsonTypes";
 
 export default function MainContent({ mainContentJson }: { mainContentJson: MainContentJson}){
     return (
         <div className="md:col-span-7 space-y-16">
-
             {/* Overview */}
             <section>
                 <h2 className="text-3xl font-bold mb-4">Overview</h2>

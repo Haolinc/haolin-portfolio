@@ -1,7 +1,16 @@
+export type ProjectBrief = {
+    title: string,
+    description: string,
+    imageLink: string,
+    jsonName: string,
+    lastUpdate: string
+}
+
 export type ProjectContentJson = {
     heroSection: HeroSectionJson,
     mainContent: MainContentJson,
-    techStack: string []
+    techStack: string [],
+    lastUpdate: string
 }
 
 export type HeroSectionJson = {

@@ -1,4 +1,4 @@
-import { ProjectContentJson } from './jsonTypes';
+import { ProjectContentJson } from '@/types/projectJsonTypes';
 import fs from 'fs/promises';
 import path from 'path';
 
