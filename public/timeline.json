@@ -1,0 +1,23 @@
+[
+    {
+        "date": "Jan 2025 – Current",
+        "location": "Remote",
+        "comapny": "Freelance",
+        "title": "Full-Stack Software Engineer",
+        "duties": [
+            "Developed a responsive full-stack website for a local bakery to expand online presence, featuring a dynamic product menu, admin dashboard, multilingual support (EN/ZH), and location finder.",
+            "Implemented RESTful APIs with Spring Boot and integrated MongoDB for efficient data retrieval and management.",
+            "Deployed on AWS using Elastic Beanstalk (backend), AWS Amplify (frontend) and configured CloudFront to safely secure the backend."
+        ]
+    },
+    {
+        "date": "Aug 2022 – Apr 2024",
+        "location": "New York, NY",
+        "comapny": "Axoni",
+        "title": "Software Engineer, Test",
+        "duties": [
+            "something1",
+            "something2"
+        ]
+    }
+]
