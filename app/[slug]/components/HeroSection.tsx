@@ -1,8 +1,7 @@
-import { Download } from 'lucide-react';
 import { HeroSectionJson } from '../../../types/projectJsonTypes'
-export default function HeroSection({heroSectionJson}: {heroSectionJson: HeroSectionJson}){
+export default function HeroSection({heroSectionJson, coverImagePath}: {heroSectionJson: HeroSectionJson, coverImagePath: string}){
     return (
-        <header className="pt-20 bg-gradient-to-br from-slate-50 to-white border-b">
+        <header className="pt-20 bg-linear-to-br from-slate-50 to-white border-b">
             <div className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
                 <div>
                     <h1 className="text-6xl font-bold tracking-tighter mt-6 leading-none">{heroSectionJson.title}</h1>
@@ -28,7 +27,7 @@ export default function HeroSection({heroSectionJson}: {heroSectionJson: HeroSec
                         }
                     </div>
                 </div>
-                <img src="https://picsum.photos/id/201/800/520" className="rounded-3xl shadow-2xl" alt="Lily Bloom Bakery" />
+                <img src={coverImagePath} className="rounded-3xl shadow-2xl order-first md:order-last" alt="Lily Bloom Bakery" />
             </div>
         </header>
     )

@@ -28,5 +28,8 @@
             }
         ]
     },
+    "images": {
+        "cover": "/images/homecare-clocking/cover.jpg"
+    },
     "lastUpdate": "2025-09-24"
 }

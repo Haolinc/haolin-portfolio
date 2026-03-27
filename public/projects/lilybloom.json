@@ -1,8 +1,8 @@
 {
     "heroSection": {
-        "title": "Lily Bloom Bakery",
+        "title": "Lily Bloom Bakery Showcase",
         "subTitle": "Full-Stack Showcase Website",
-        "description": "A beautiful, multilingual online store + admin dashboard built and deployed for a local Brooklyn bakery.",
+        "description": "A beautiful, multilingual online showcase + admin dashboard built and deployed for a local Brooklyn bakery.",
         "liveWebsite": "https://lilybloom-showcase.com/"
     },
     "techStack": [
@@ -28,6 +28,9 @@
                 "body": "Elastic Beanstalk, Amplify, CloudFront, and S3 for fast global delivery"
             }
         ]
+    },
+    "images": {
+        "cover": "/images/lilybloom/cover.jpg"
     },
     "lastUpdate": "2026-03-24"
 }

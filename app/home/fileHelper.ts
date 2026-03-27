@@ -15,7 +15,7 @@ export async function getProjects(): Promise<ProjectBrief[]> {
                     return {
                         title: jsonFile.heroSection.title,
                         description: jsonFile.heroSection.description,
-                        imageLink: "https://picsum.photos/id/201/700/340",
+                        imageLink: jsonFile.images.cover,
                         jsonName: filename.replace(".json", ""),
                         lastUpdate: jsonFile.lastUpdate
                     }

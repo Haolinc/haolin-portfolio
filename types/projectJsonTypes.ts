@@ -10,6 +10,7 @@ export type ProjectContentJson = {
     heroSection: HeroSectionJson,
     mainContent: MainContentJson,
     techStack: string [],
+    images: ImagePathContainer,
     lastUpdate: string
 }
 
@@ -29,4 +30,8 @@ export type MainContentJson = {
 type Section = {
     header: string,
     body: string
+}
+
+export type ImagePathContainer = {
+    cover: string
 }

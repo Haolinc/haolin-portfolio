@@ -15,7 +15,12 @@ export default function ProjectSection({projectBriefs} : {projectBriefs: Project
                             <Link key={projectBrief.jsonName} href={`/${projectBrief.jsonName}`}>
                                 <motion.div whileHover={{ scale: 1.03 }} className="card-hover bg-white border border-slate-200 rounded-3xl overflow-hidden group">
                                     <div className="relative">
-                                        <img src={projectBrief.imageLink} className="w-full" />
+                                        <img 
+                                            src={projectBrief.imageLink} 
+                                            alt="coverImage"
+                                            className="h-80 w-full"
+                                            // style={{objectFit: "contain", maxHeight: 400, }} 
+                                        />
                                     </div>
                                     <div className="p-6">
                                         <h3 className="font-bold text-xl flex items-center gap-2">{projectBrief.title}</h3>

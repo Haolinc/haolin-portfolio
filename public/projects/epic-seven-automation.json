@@ -27,5 +27,8 @@
             }
         ]
     },
+    "images": {
+        "cover": "/images/epic-seven-automation/cover.png"
+    },
     "lastUpdate": "2025-02-12"
 }
