@@ -6,8 +6,8 @@ import { ProjectBrief } from '@/types/projectJsonTypes';
 export default function ProjectSection({projectBriefs} : {projectBriefs: ProjectBrief[]}){
     return <section id="projects" className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-5xl font-bold text-center md:text-left mb-4">Things I’ve built</h2>
-            <p className="text-center md:text-left text-slate-500 mb-12">Hover them. They bite back with coolness.</p>
+            <h2 className="text-5xl font-bold text-center md:text-left mb-4">Featured Work</h2>
+            <p className="text-center md:text-left text-slate-500 mb-12">Full-stack web and mobile applications, built and deployed from the ground up.</p>
             <div className="grid md:grid-cols-2 gap-8">
                 {
                     projectBriefs.map(projectBrief => {

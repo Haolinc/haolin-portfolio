@@ -5,9 +5,19 @@
         "comapny": "Freelance",
         "title": "Full-Stack Software Engineer",
         "duties": [
-            "Developed a responsive full-stack website for a local bakery to expand online presence, featuring a dynamic product menu, admin dashboard, multilingual support (EN/ZH), and location finder.",
-            "Implemented RESTful APIs with Spring Boot and integrated MongoDB for efficient data retrieval and management.",
-            "Deployed on AWS using Elastic Beanstalk (backend), AWS Amplify (frontend) and configured CloudFront to safely secure the backend."
+            "Developed a complete responsive full-stack showcase website for a local bakery featuring dynamic product menu, admin dashboard, multilingual support (EN/ZH), location finder, RESTful APIs with Spring Boot + MongoDB, bulk CSV/XLSX/ZIP imports via AWS S3, and production deployment on AWS (Elastic Beanstalk backend, Amplify frontend, CloudFront security) after migrating from React SPA to Next.js for SSR and major performance gains.",
+            "Built a full employee attendance solution including a React web utility that generates device-compatible dial URIs and a companion Android app using Kotlin + Jetpack Compose to automate check-in and check-out workflows.",
+            "Engineered an autonomous automation tool leveraging image recognition and emulator control libraries to execute repetitive tasks without manual intervention."
+        ],
+        "skillSet": [
+            "Java",
+            "React",
+            "Next.js",
+            "Spring Boot",
+            "MongoDB",
+            "AWS (Elastic Beanstalk, Amplify, CloudFront)",
+            "Kotlin",
+            "Jetpack Compose"
         ]
     },
     {
@@ -16,8 +26,24 @@
         "comapny": "Axoni",
         "title": "Software Engineer, Test",
         "duties": [
-            "something1",
-            "something2"
+            "Contributed as a key member of an agile scrum team that implemented a SaaS product solution (directbooks.com) for Corporate Bond issuance in the primary markets",
+            "Identified critical application bottlenecks by designing and implementing Scala-based load tests with Gatling, then analyzed performance metrics using Grafana and Prometheus.",
+            "Improved automated test suite maintainability and readability by refactoring code to reduce duplication, enhancing error reporting mechanisms, and restructuring file organization.",
+            "Developed and maintained test suites plus technical documentation in Confluence to support smooth team onboarding.",
+            "Collaborated cross-functionally with business leads, product managers, and developers within an agile framework to ensure timely, high-quality software delivery.",
+            "Managed test repositories and testing environments using GitLab, leveraging CI/CD pipelines for seamless deployment and updates."
+        ],
+        "skillSet": [
+            "Cypress",
+            "Postman",
+            "ZIO Test",
+            "Javascript",
+            "Scala",
+            "Gatling",
+            "Grafana",
+            "Prometheus",
+            "Confluence",
+            "GitLab CI/CD"
         ]
     }
 ]
