@@ -6,7 +6,7 @@
         "liveWebsite": "https://lilybloom-showcase.com/"
     },
     "techStack": [
-        "Next.js", "Spring Boot", "MongoDB", "TypeScript", "Javascript", "AWS Elastic Beanstalk", "AWS Amplify", "AWS CloudFront", "AWS S3", "Material UI", "React-Admin"
+        "Next.js", "Spring Boot", "MongoDB", "TypeScript", "Javascript", "AWS (Elastic Beanstalk, Amplify, CloudFront, S3)", "Material UI", "React-Admin"
     ],
     "mainContent": {
         "overview": "Developed and launched a complete full-stack showcase website for a local bakery. The platform features server-side rendering, multilingual support (English & Simplified Chinese), a full admin dashboard, and an automated bulk import pipeline.",
@@ -26,6 +26,52 @@
             {
                 "header": "Scalable AWS Deployment",
                 "body": "Elastic Beanstalk, Amplify, CloudFront, and S3 for fast global delivery"
+            }
+        ],
+        "walkthrough": [
+            {
+                "header": "Hero Landing Page",
+                "subheader": "First impression that converts",
+                "imagePath": "/images/lilybloom/homepage.png",
+                "description": "Storefront hero with dramatic bakery photography, powerful tagline, and clear CTA. Built with Next.js 15 App Router + server-side rendering for instant load times. Supports full English / Simplified Chinese language switching with fast page reload. Fully responsive across all mobile, tablet, and desktop screens.",
+                "keyTerms": [
+                    "Next.js SSR",
+                    "Multilingual (i18n)",
+                    "Mobile-Optimized"
+                ]
+            },
+            {
+                "header": "Dynamic Menu Experience",
+                "subheader": "Beautiful product catalog",
+                "imagePath": "/images/lilybloom/menupage.png",
+                "description": "Tabbed category navigation (Bread, Cake, Drink, Pastry) with sub-categories. Rich product cards featuring real photos, pricing, and tags. Data is fetched from MongoDB via Spring Boot REST APIs and rendered with Next.js. The grid layout adapts seamlessly to any screen size.",
+                "keyTerms": [
+                    "MongoDB real-time",
+                    "Dynamic menu rendering",
+                    "Responsive Grid"
+                ]
+            },
+            {
+                "header": "Smart Location Finder",
+                "subheader": "Multiple Brooklyn stores",
+                "imagePath": "/images/lilybloom/locationpage.png",
+                "description": "Interactive map powered by OpenStreetMap showing all bakery locations. Clean sidebar with addresses, opening hours, phone numbers and navigation buttons. Fully responsive and built as a reusable React component for flawless touch interactions on mobile.",
+                "keyTerms": [
+                    "Map integration",
+                    "Location data layer",
+                    "Touch-Friendly"
+                ]
+            },
+            {
+                "header": "Secure Admin Dashboard",
+                "subheader": "Full content management",
+                "imagePath": "/images/lilybloom/adminpage.png",
+                "description": "Protected admin panel built with React Admin + Spring Boot backend. Full CRUD for menu items, categories, tags, locations, and even a part of website page content. Features bulk CSV/XLSX + image ZIP import pipeline.",
+                "keyTerms": [
+                    "React Admin",
+                    "Bulk import pipeline",
+                    "Spring Boot backend"
+                ]
             }
         ]
     },

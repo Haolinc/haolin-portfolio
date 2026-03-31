@@ -25,6 +25,16 @@ export type HeroSectionJson = {
 export type MainContentJson = {
     overview: string,
     keyFeature: Section[],
+    walkthrough: WalkthroughSection[]
+}
+
+type WalkthroughSection = {
+    header: string,
+    subheader: string,
+    description: string,
+    body: string,
+    imagePath: string,
+    keyTerms: string[]
 }
 
 type Section = {

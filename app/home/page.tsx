@@ -2,7 +2,6 @@ import Header from './components/Header'
 import HeroSection from './components/HeroSection';
 import ProjectSection from './components/ProjectSection';
 import TimelineSection from './components/TimelineSection';
-import Footer from './components/Footer';
 import { getProjects } from './fileHelper';
 
 export default async function Portfolio() {
@@ -14,7 +13,6 @@ export default async function Portfolio() {
             <HeroSection/>
             <ProjectSection projectBriefs={projectBreifs}/>
             <TimelineSection/>
-            <Footer/>  
         </div>
     );
 }

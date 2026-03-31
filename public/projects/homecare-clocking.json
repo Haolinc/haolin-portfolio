@@ -20,11 +20,41 @@
             },
             {
                 "header": "Zero Manual Logging",
-                "body": "Automated URI generator for instant employee clock-in"
+                "body": "Automated URI generator for easy employee clock-in"
             },
             {
-                "header": "Real-time Attendance",
+                "header": "Human Error Reduction",
                 "body": "Eliminates paper logs and manual entry errors"
+            },
+            {
+                "header": "Utilize Existing Phone Systems",
+                "body": "Leverages standard dialer functionality for seamless integration"
+            }
+        ],
+        "walkthrough": [
+            {
+                "header": "Native Android App",
+                "subheader": "Seamless bilingual interface",
+                "imagePath": "/images/homecare-clocking/clocking_phone.png",
+                "description": "Companion Android application built with Kotlin and Jetpack Compose to automate employee attendance tracking. Supporting both Simplified Chinese and English interfaces, allow user to pre-configured employee credentials and task codes ready for one-tap Check-In or Check-Out dialing, and leverages standard dialer functionality to seamlessly integrate with existing phone systems, eliminating most of the compatibility issues.",
+                "keyTerms": [
+                    "Kotlin & Jetpack Compose",
+                    "Multilingual",
+                    "One-Tap Dialing",
+                    "Workflow Automation",
+                    "Compatibile"
+                ]
+            },
+            {
+                "header": "Web Dial URI Generator",
+                "subheader": "Instant URI generation",
+                "imagePath": "/images/homecare-clocking/clockingpage.png",
+                "description": "The web dial URI generator emlinates the limit of android-only access and allows users to generate the dial URI on any device with a browser.",
+                "keyTerms": [
+                    "React",
+                    "Web Based Dial URI Generating",
+                    "Compatible with Most Devices"
+                ]
             }
         ]
     },

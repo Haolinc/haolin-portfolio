@@ -1,7 +1,7 @@
 {
     "heroSection": {
         "title": "Epic Seven Automation",
-        "subTitle": "Python + OpenCV Game Bot",
+        "subTitle": "Python + OpenCV Game Tool",
         "description": "Autonomous in-game automation tool using image recognition to execute repetitive tasks.",
         "githubWebsite": "https://github.com/Haolinc/Epic-Seven-Automation"
     },
@@ -24,6 +24,40 @@
             {
                 "header": "Multiple Emulator And Screen Size Ready",
                 "body": "Fully functional automation script for multiple emulators and screen size"
+            }
+        ],
+        "walkthrough": [
+            {
+                "header": "Automation Launcher",
+                "subheader": "Launch automation with ease",
+                "imagePath": "/images/epic-seven-automation/launcher.png",
+                "description": "Clean, intuitive launcher interface built with Python 3.11 and Tkinter. The entry point to the Epic Seven Automation Tool — select your ADB-connected emulator and launch automated tasks without ever losing keyboard or mouse control. Supports LD Player, BlueStacks, Google Play Games, and even physical Android devices with USB debugging enabled.",
+                "keyTerms": [
+                    "Python 3.11",
+                    "Tkinter GUI",
+                    "ADB Integration"
+                ]
+            },
+            {
+                "header": "Shop Refresh Automation",
+                "subheader": "Secret Shop Farming",
+                "imagePath": "/images/epic-seven-automation/shop_refresh.gif",
+                "description": "Fully automated secret shop refresh loop. Navigate to the shop page, input desired refresh iterations (starting from 0), and let OpenCV-powered image recognition handle every tap, swipe, and purchase autonomously. Support multiple emulators and screen sizes, ensuring a seamless experience regardless of your setup.",
+                "keyTerms": [
+                    "OpenCV Image Recognition",
+                    "Shop Refresh",
+                    "Repetitive task automation"
+                ]
+            },
+            {
+                "header": "NPC Challenge Arena",
+                "subheader": "Arena farming with extras",
+                "imagePath": "/images/epic-seven-automation/arena.gif",
+                "description": "Advanced NPC arena automation. Input base challenge count and optionally enable Arena With Extra to purchase friendship bookmarks for +5 extra flags. The tool intelligently handles the full loop while you multitask.",
+                "keyTerms": [
+                    "OpenCV Image Recognition",
+                    "NPC Arena Automation"
+                ]
             }
         ]
     },
