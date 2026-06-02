@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ProjectBrief } from '@/types/projectJsonTypes';
+import ImageWithFallback from '../../components/ImageWithFallback';
 
 export default function ProjectSection({projectBriefs} : {projectBriefs: ProjectBrief[]}){
     return <section id="projects" className="py-20 bg-white">
@@ -15,15 +16,20 @@ export default function ProjectSection({projectBriefs} : {projectBriefs: Project
                             <Link key={projectBrief.jsonName} href={`/${projectBrief.jsonName}`}>
                                 <motion.div whileHover={{ scale: 1.03 }} className="card-hover bg-white border border-slate-200 rounded-3xl overflow-hidden group">
                                     <div className="relative">
-                                        <img 
-                                            src={projectBrief.imageLink} 
+                                        <ImageWithFallback
+                                            src={projectBrief.imageLink}
                                             alt="coverImage"
                                             className="h-80 w-full"
-                                            // style={{objectFit: "contain", maxHeight: 400, }} 
+                                            // style={{objectFit: "contain", maxHeight: 400, }}
                                         />
                                     </div>
                                     <div className="p-6">
-                                        <h3 className="font-bold text-xl flex items-center gap-2">{projectBrief.title}</h3>
+                                        <h3 className="font-bold text-xl flex items-center gap-2">
+                                            {projectBrief.title}
+                                            {projectBrief.inDevelopment && (
+                                                <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 border border-amber-200">In Development</span>
+                                            )}
+                                        </h3>
                                         <p className="text-slate-600">{projectBrief.description}</p>
                                     </div>
                                 </motion.div>

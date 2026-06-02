@@ -5,6 +5,7 @@
         "comapny": "Freelance",
         "title": "Full-Stack Software Engineer",
         "duties": [
+            "Building a Gmail-synced job-application tracker (React + Express/Node.js + MongoDB) that connects via OAuth and auto-classifies emails into applications, interviews, offers, and rejections using a cost-aware hybrid pipeline, where a deterministic regex parser handles the majority of emails with an LLM fallback for ambiguous cases, surfacing results in board and table views with derived stats.",
             "Developed a complete responsive full-stack showcase website for a local bakery featuring dynamic product menu, admin dashboard, multilingual support (EN/ZH), location finder, RESTful APIs with Spring Boot + MongoDB, bulk CSV/XLSX/ZIP imports via AWS S3, and production deployment on AWS (Elastic Beanstalk backend, Amplify frontend, CloudFront security) after migrating from React SPA to Next.js for SSR and major performance gains.",
             "Built a full employee attendance solution including a React web utility that generates device-compatible dial URIs and a companion Android app using Kotlin + Jetpack Compose to automate check-in and check-out workflows.",
             "Engineered an autonomous automation tool leveraging image recognition and emulator control libraries to execute repetitive tasks without manual intervention."
@@ -17,7 +18,11 @@
             "MongoDB",
             "AWS (Elastic Beanstalk, Amplify, CloudFront, S3)",
             "Kotlin",
-            "Jetpack Compose"
+            "Jetpack Compose",
+            "Express",
+            "Node.js",
+            "TypeScript",
+            "Gmail OAuth API"
         ]
     },
     {

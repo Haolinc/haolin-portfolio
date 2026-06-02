@@ -3,7 +3,8 @@ export type ProjectBrief = {
     description: string,
     imageLink: string,
     jsonName: string,
-    lastUpdate: string
+    lastUpdate: string,
+    inDevelopment?: boolean
 }
 
 export type ProjectContentJson = {
@@ -11,7 +12,8 @@ export type ProjectContentJson = {
     mainContent: MainContentJson,
     techStack: string [],
     images: ImagePathContainer,
-    lastUpdate: string
+    lastUpdate: string,
+    inDevelopment?: boolean
 }
 
 export type HeroSectionJson = {

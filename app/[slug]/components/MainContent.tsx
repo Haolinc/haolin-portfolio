@@ -1,4 +1,5 @@
 import { MainContentJson } from "@/types/projectJsonTypes";
+import ImageWithFallback from "../../components/ImageWithFallback";
 
 export default function MainContent({ mainContentJson }: { mainContentJson: MainContentJson}){
     return (
@@ -43,8 +44,8 @@ export default function MainContent({ mainContentJson }: { mainContentJson: Main
                                     {/* Image */}
                                     <div className={"lg:col-span-7 order-1" + (isEven ? " lg:order-2" : " lg:order-1")}>
                                         <div className="relative group rounded-3xl overflow-hidden border border-slate-200 shadow-2xl bg-white">
-                                            <img 
-                                                src={section.imagePath} 
+                                            <ImageWithFallback
+                                                src={section.imagePath}
                                                 alt={section.header}
                                                 className="w-full h-auto object-fill transition-transform duration-700 group-hover:scale-105"
                                             />

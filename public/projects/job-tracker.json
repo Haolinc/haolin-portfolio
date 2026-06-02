@@ -1,0 +1,76 @@
+{
+    "heroSection": {
+        "title": "Job Tracker",
+        "subTitle": "React + Express/Node.js + MongoDB",
+        "description": "A Gmail synced job application tracker that imports applications, interviews, offers, and rejections from your inbox.",
+        "githubWebsite": "https://github.com/Haolinc/job-tracker"
+    },
+    "techStack": [
+        "React",
+        "Express",
+        "TypeScript",
+        "MongoDB",
+        "Gmail OAuth API"
+    ],
+    "mainContent": {
+        "overview": "Built a full-stack job-application tracker that connects to Gmail via OAuth, automatically classifies emails into applications, interviews, offers, and rejections, and surfaces them in a board/table view with stats.",
+        "keyFeature": [
+            {
+                "header": "Gmail Sync Pipeline",
+                "body": "OAuth-connected streaming sync with adaptive rate-pacing and 403/429 backoff that processes one batch at a time, not the whole mailbox"
+            },
+            {
+                "header": "Hybrid Classification",
+                "body": "Deterministic regex handles ~50–60% of emails at zero AI cost; only ambiguous emails hit the LLM, with regex always authoritative for company and role"
+            },
+            {
+                "header": "Idempotent Merge Model",
+                "body": "Dates as source of truth: date_applied = oldest email, status = newest email. Reprocessing in any order yields the same result"
+            },
+            {
+                "header": "Board + Table Views",
+                "body": "Kanban board and filterable table with manual add/edit, status changes, and a stats bar: Total · Active · Offers · Interview Rate"
+            }
+        ],
+        "walkthrough": [
+            {
+                "header": "Gmail Sync Engine",
+                "subheader": "Automatic inbox-to-board pipeline",
+                "imagePath": "/images/job-tracker/sync.png",
+                "description": "Connects to Gmail via OAuth and streams messages in configurable windows (30 / 60 / 90 / 180 days). A tuned search query filters noise with a large exclusion list before any classification runs. Streaming keeps only one batch in memory at a time, and adaptive rate-pacing with 403/429 backoff keeps the sync stable under Gmail's quota limits.",
+                "keyTerms": [
+                    "Gmail OAuth",
+                    "Streaming batch sync",
+                    "Adaptive rate-pacing"
+                ]
+            },
+            {
+                "header": "Hybrid Email Classifier",
+                "subheader": "Cost-aware deterministic-first classification",
+                "imagePath": "/images/job-tracker/classifier.png",
+                "description": "A deterministic regex parser handles the majority of emails (LinkedIn, Indeed, Workday, and common ATS templates) at zero AI cost. Only the ambiguous remainder reaches the LLM, and even then the regex is the authority for company name and role title, so requisition numbers stay exact and nothing is hallucinated. Company-variant matching (e.g. SS&C vs. SS&C Technologies) prevents duplicate records.",
+                "keyTerms": [
+                    "Regex parser",
+                    "LLM fallback",
+                    "Fuzzy company matching"
+                ]
+            },
+            {
+                "header": "Application Board",
+                "subheader": "Track every stage at a glance",
+                "imagePath": "/images/job-tracker/board.png",
+                "description": "Kanban board and filterable table views with manual add/edit and status changes. A stats bar shows Total, Active, Offers, and Interview Rate. The Interview Rate uses a sticky reached_interview flag so applications that were interviewed and later rejected still count, with a manual override checkbox for edge cases.",
+                "keyTerms": [
+                    "Board + table views",
+                    "Interview Rate metric",
+                    "Manual override"
+                ]
+            }
+        ]
+    },
+    "images": {
+        "cover": "/images/job-tracker/cover.png"
+    },
+    "lastUpdate": "2026-06-01",
+    "inDevelopment": true
+}

@@ -22,7 +22,7 @@ export default async function ProjectPage({params} : {params: Promise<{ slug: st
     return (
         <div className="min-h-screen bg-white text-slate-900">
             <TopNavigation/>
-            <HeroSection heroSectionJson={pageContent.heroSection} coverImagePath={pageContent.images.cover}/>
+            <HeroSection heroSectionJson={pageContent.heroSection} coverImagePath={pageContent.images.cover} inDevelopment={pageContent.inDevelopment}/>
             <div className="max-w-6xl mx-auto px-6 py-20 grid gap-12">
                 <MainContent mainContentJson={pageContent.mainContent}/>
                 <SideBar techStackArray={pageContent.techStack}/>

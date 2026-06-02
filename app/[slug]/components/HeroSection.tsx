@@ -1,10 +1,16 @@
 import { HeroSectionJson } from '../../../types/projectJsonTypes'
-export default function HeroSection({heroSectionJson, coverImagePath}: {heroSectionJson: HeroSectionJson, coverImagePath: string}){
+import ImageWithFallback from '../../components/ImageWithFallback'
+export default function HeroSection({heroSectionJson, coverImagePath, inDevelopment}: {heroSectionJson: HeroSectionJson, coverImagePath: string, inDevelopment?: boolean}){
     return (
         <header className="pt-20 bg-linear-to-br from-slate-50 to-white border-b">
             <div className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h1 className="text-6xl font-bold tracking-tighter mt-6 leading-none">{heroSectionJson.title}</h1>
+                    <div className="flex items-center gap-3 mt-6">
+                        <h1 className="text-6xl font-bold tracking-tighter leading-none">{heroSectionJson.title}</h1>
+                        {inDevelopment && (
+                            <span className="text-sm font-medium px-3 py-1 rounded-full bg-amber-100 text-amber-700 border border-amber-200 self-end mb-1">In Development</span>
+                        )}
+                    </div>
                     <p className="text-3xl text-emerald-600 mt-3">{heroSectionJson.subTitle}</p>
                     <p className="mt-6 max-w-md text-lg text-slate-600">
                         {heroSectionJson.description}
@@ -27,7 +33,7 @@ export default function HeroSection({heroSectionJson, coverImagePath}: {heroSect
                         }
                     </div>
                 </div>
-                <img src={coverImagePath} className="rounded-3xl shadow-2xl order-first md:order-last" alt="Lily Bloom Bakery" />
+                <ImageWithFallback src={coverImagePath} className="rounded-3xl shadow-2xl order-first md:order-last" alt="Lily Bloom Bakery" />
             </div>
         </header>
     )

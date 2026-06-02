@@ -1,5 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
+import ImageWithFallback from '../../components/ImageWithFallback';
 
 export default function HeroSection(){
     return <section className="hero-bg pt-5 md:pt-0 md:min-h-screen flex items-center relative">
@@ -33,7 +34,7 @@ export default function HeroSection(){
             {/* Profile */}
             <div className="md:col-span-5 relative flex md:justify-center mb-5">
                 <motion.div className="relative">
-                    <img src="selfie.png" className="rounded-3xl shadow-2xl border-8 border-white" alt="selfie" />
+                    <ImageWithFallback src="selfie.png" className="rounded-3xl shadow-2xl border-8 border-white" alt="selfie" />
                 </motion.div>
             </div>
         </div>

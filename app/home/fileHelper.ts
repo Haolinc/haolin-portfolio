@@ -17,7 +17,8 @@ export async function getProjects(): Promise<ProjectBrief[]> {
                         description: jsonFile.heroSection.description,
                         imageLink: jsonFile.images.cover,
                         jsonName: filename.replace(".json", ""),
-                        lastUpdate: jsonFile.lastUpdate
+                        lastUpdate: jsonFile.lastUpdate,
+                        inDevelopment: jsonFile.inDevelopment
                     }
         }));
         return projectBriefs;
