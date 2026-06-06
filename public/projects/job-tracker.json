@@ -2,68 +2,93 @@
     "heroSection": {
         "title": "Job Tracker",
         "subTitle": "React + Express/Node.js + MongoDB",
-        "description": "A Gmail synced job application tracker that imports applications, interviews, offers, and rejections from your inbox.",
+        "description": "A Gmail-synced job application tracker that automatically classifies emails into applications, interviews, offers, and rejections using a local AI model with a deterministic regex fallback.",
         "githubWebsite": "https://github.com/Haolinc/job-tracker"
     },
     "techStack": [
         "React",
+        "Vite",
+        "Tailwind CSS",
         "Express",
         "TypeScript",
         "MongoDB",
-        "Gmail OAuth API"
+        "Gmail OAuth API",
+        "Ollama"
     ],
     "mainContent": {
-        "overview": "Built a full-stack job-application tracker that connects to Gmail via OAuth, automatically classifies emails into applications, interviews, offers, and rejections, and surfaces them in a board/table view with stats.",
+        "overview": "Developing a full-stack job application tracker that connects to Gmail via OAuth and streams emails through a hybrid classification pipeline: a deterministic regex parser handles the majority of emails and with a local Ollama LLM (qwen2.5:7b) as fallback for ambiguous cases. Applications surface in a Kanban board and sortable table with live search, CSV import/export, and a stats bar tracking total, active, offers, and interview rate.",
         "keyFeature": [
             {
                 "header": "Gmail Sync Pipeline",
-                "body": "OAuth-connected streaming sync with adaptive rate-pacing and 403/429 backoff that processes one batch at a time, not the whole mailbox"
+                "body": "Streams emails in configurable scan windows (30/60/90/180 days), skipping already-synced message IDs and emitting real-time progress to the UI as each batch is processed"
             },
             {
                 "header": "Hybrid Classification",
-                "body": "Deterministic regex handles ~50–60% of emails at zero AI cost; only ambiguous emails hit the LLM, with regex always authoritative for company and role"
+                "body": "Deterministic regex parser runs first and covers the majority of emails at minimum cost. Only unresolved emails reach the local Ollama LLM, and regex always stays authoritative for company name and role to prevent hallucination"
             },
             {
-                "header": "Idempotent Merge Model",
-                "body": "Dates as source of truth: date_applied = oldest email, status = newest email. Reprocessing in any order yields the same result"
+                "header": "Smart Dedup and Matching",
+                "body": "Company matching uses a union of domain and name probes, treats descriptor suffixes (Technologies, Solutions) as the same entity, and uses job numbers as the strongest dedup key to prevent duplicate records"
             },
             {
-                "header": "Board + Table Views",
-                "body": "Kanban board and filterable table with manual add/edit, status changes, and a stats bar: Total · Active · Offers · Interview Rate"
+                "header": "Board and Table Views",
+                "body": "Kanban board with collapsible columns, sortable table with pagination, live search, provenance badges (Imported, Parser, AI), and a stats bar: Total, Active, Offers, Interview Rate"
+            },
+            {
+                "header": "CSV Import and Export",
+                "body": "Import applications without connecting Gmail at all, or export to a portable 12-column CSV that opens in Excel or Google Sheets. The export is fully re-importable, so your data stays usable outside the app entirely"
             }
         ],
         "walkthrough": [
             {
-                "header": "Gmail Sync Engine",
-                "subheader": "Automatic inbox-to-board pipeline",
-                "imagePath": "/images/job-tracker/sync.png",
-                "description": "Connects to Gmail via OAuth and streams messages in configurable windows (30 / 60 / 90 / 180 days). A tuned search query filters noise with a large exclusion list before any classification runs. Streaming keeps only one batch in memory at a time, and adaptive rate-pacing with 403/429 backoff keeps the sync stable under Gmail's quota limits.",
-                "keyTerms": [
-                    "Gmail OAuth",
-                    "Streaming batch sync",
-                    "Adaptive rate-pacing"
-                ]
-            },
-            {
-                "header": "Hybrid Email Classifier",
-                "subheader": "Cost-aware deterministic-first classification",
-                "imagePath": "/images/job-tracker/classifier.png",
-                "description": "A deterministic regex parser handles the majority of emails (LinkedIn, Indeed, Workday, and common ATS templates) at zero AI cost. Only the ambiguous remainder reaches the LLM, and even then the regex is the authority for company name and role title, so requisition numbers stay exact and nothing is hallucinated. Company-variant matching (e.g. SS&C vs. SS&C Technologies) prevents duplicate records.",
-                "keyTerms": [
-                    "Regex parser",
-                    "LLM fallback",
-                    "Fuzzy company matching"
-                ]
-            },
-            {
                 "header": "Application Board",
-                "subheader": "Track every stage at a glance",
+                "subheader": "All your applications at a glance",
                 "imagePath": "/images/job-tracker/board.png",
-                "description": "Kanban board and filterable table views with manual add/edit and status changes. A stats bar shows Total, Active, Offers, and Interview Rate. The Interview Rate uses a sticky reached_interview flag so applications that were interviewed and later rejected still count, with a manual override checkbox for edge cases.",
+                "description": "Four Kanban columns (Applied, Interview, Offer, Rejected) each collapsible to 3 cards with a Show More expander. A live search bar above the board filters cards by company or role in real time. Cards display company, role, interview stage pill, provenance badges (Parser, AI, Imported), dates, and a notes preview. A stats bar at the top tracks Total, Active, Offers, and Interview Rate. The Interview Rate uses a sticky flag so interviewed-then-rejected applications still count, with a manual override checkbox for edge cases.",
                 "keyTerms": [
-                    "Board + table views",
-                    "Interview Rate metric",
-                    "Manual override"
+                    "Kanban board"
+                ]
+            },
+            {
+                "header": "Table View",
+                "subheader": "Sort, search, and filter",
+                "imagePath": "/images/job-tracker/table.png",
+                "description": "An alternative to the board for a denser view of all applications. Sortable columns, 25-row pagination, and the same live search bar shared with the board view. Newly synced or imported rows are highlighted with a green left border. Provenance badges appear inline in the Company column, and edit/delete buttons show on row hover.",
+                "keyTerms": [
+                    "Sortable table"
+                ]
+            },
+            {
+                "header": "Gmail Sync",
+                "subheader": "Inbox to board automatically",
+                "imagePath": "/images/job-tracker/sync.png",
+                "description": "Connects via Google OAuth and scans Gmail with a tuned query combining a positive job-phrase group with a large noise-exclusion list. Choose a scan window (30/60/90/180 days) from the header dropdown and hit Sync Gmail. A real-time progress bar and live count update inline next to the button as each batch lands, and a summary line shows exactly what was added or updated once the sync completes. Each synced message ID is stored so re-syncs never reprocess old mail.",
+                "keyTerms": [
+                    "Google OAuth",
+                    "Scan window",
+                    "Real-time progress"
+                ]
+            },
+            {
+                "header": "CSV Import and Export",
+                "subheader": "Your data, anywhere, no sync required",
+                "imagePath": "/images/job-tracker/csv.png",
+                "description": "Export any time to a clean 12-column CSV (Company, Role, Status, Stage, Reached Interview, Date Applied, Last Response, Job URL, Notes, Source, Company Domain, Job ID) that opens directly in Excel or Google Sheets. Import works independently of Gmail sync, so users who prefer not to connect their inbox can still track every application by uploading a CSV manually. The file is also fully re-importable: Company Domain and Job ID are included in the export so any row re-imported later merges onto the correct existing record instead of creating a duplicate. Application data stays portable and readable outside the app entirely.",
+                "keyTerms": [
+                    "Gmail-free import",
+                    "Excel compatible",
+                    "Re-importable export"
+                ]
+            },
+            {
+                "header": "Add and Edit Applications",
+                "subheader": "Manual tracking with smart fields",
+                "imagePath": "/images/job-tracker/modal.png",
+                "description": "A clean modal for adding or editing any application manually. Fields include Company, Role, Status, Date Applied, Last Response, Job URL, and Notes. The Interview Stage dropdown appears only when status is set to Interview. For rejected applications, a Reached Interview checkbox is shown to ensure the interview rate stays accurate even after a rejection. User-edited notes are never overwritten by a future sync.",
+                "keyTerms": [
+                    "Manual add/edit",
+                    "Conditional fields",
+                    "Notes protection"
                 ]
             }
         ]
@@ -71,6 +96,6 @@
     "images": {
         "cover": "/images/job-tracker/cover.png"
     },
-    "lastUpdate": "2026-06-01",
+    "lastUpdate": "2026-06-02",
     "inDevelopment": true
 }
