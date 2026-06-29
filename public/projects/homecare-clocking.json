@@ -42,14 +42,14 @@
                     "Multilingual",
                     "One-Tap Dialing",
                     "Workflow Automation",
-                    "Compatibile"
+                    "Compatible"
                 ]
             },
             {
                 "header": "Web Dial URI Generator",
                 "subheader": "Instant URI generation",
                 "imagePath": "/images/homecare-clocking/clockingpage.png",
-                "description": "The web dial URI generator emlinates the limit of android-only access and allows users to generate the dial URI on any device with a browser.",
+                "description": "The web dial URI generator eliminates the limit of android-only access and allows users to generate the dial URI on any device with a browser.",
                 "keyTerms": [
                     "React",
                     "Web Based Dial URI Generating",

@@ -33,7 +33,7 @@ export default function HeroSection({heroSectionJson, coverImagePath, inDevelopm
                         }
                     </div>
                 </div>
-                <ImageWithFallback src={coverImagePath} className="rounded-3xl shadow-2xl order-first md:order-last" alt="Lily Bloom Bakery" />
+                <ImageWithFallback src={coverImagePath} className="rounded-3xl shadow-2xl order-first md:order-last" alt={heroSectionJson.title} />
             </div>
         </header>
     )

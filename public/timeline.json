@@ -2,7 +2,7 @@
     {
         "date": "Jan 2025 – Current",
         "location": "Remote",
-        "comapny": "Freelance",
+        "comapny": "Independent",
         "title": "Full-Stack Software Engineer",
         "duties": [
             "Building a Gmail-synced job application tracker (React + Express/Node.js + MongoDB) that classifies emails through a hybrid pipeline: a deterministic regex parser covers the majority of cases at zero cost, with a local Ollama LLM (qwen2.5:7b) as fallback. Smart dedup matching merges records across Gmail and CSV imports using domain probes, company-variant normalization, and ATS requisition numbers, surfacing results in a Kanban board and sortable table with live search and CSV import/export.",
