@@ -1,79 +1,79 @@
 {
     "heroSection": {
         "title": "Job Tracker",
-        "subTitle": "React + Express/Node.js + MongoDB",
-        "description": "A Gmail-synced job application tracker that automatically classifies emails into applications, interviews, offers, and rejections using a local AI model with a deterministic regex fallback.",
+        "subTitle": "Gmail-Synced Desktop App",
+        "description": "A Kanban board that fills itself: job applications auto-synced from Gmail and classified by a local AI, so your inbox never leaves your machine.",
         "githubWebsite": "https://github.com/Haolinc/job-tracker"
     },
     "techStack": [
         "React",
         "Vite",
         "Tailwind CSS",
-        "Express",
         "TypeScript",
-        "MongoDB",
-        "Gmail OAuth API",
-        "Ollama"
+        "Express",
+        "SQLite",
+        "Electron",
+        "Ollama",
+        "Gmail OAuth API"
     ],
     "mainContent": {
-        "overview": "Developing a full-stack job application tracker that connects to Gmail via OAuth and streams emails through a hybrid classification pipeline: a deterministic regex parser handles the majority of emails and with a local Ollama LLM (qwen2.5:7b) as fallback for ambiguous cases. Applications surface in a Kanban board and sortable table with live search, CSV import/export, and a stats bar tracking total, active, offers, and interview rate.",
+        "overview": "Built and packaged a full-stack job application tracker that connects to Gmail (read-only) and classifies emails into applications, interviews, offers, and rejections through a hybrid pipeline: a deterministic parser handles the common job boards, and a local Ollama LLM handles the rest, so no inbox data ever leaves the machine. Applications surface in a Kanban board and sortable table backed by SQLite, and an Electron desktop launcher packages everything into a self-updating Windows app that runs with nothing preinstalled.",
         "keyFeature": [
             {
                 "header": "Gmail Sync Pipeline",
-                "body": "Streams emails in configurable scan windows (30/60/90/180 days), skipping already-synced message IDs and emitting real-time progress to the UI as each batch is processed"
+                "body": "Scans a configurable window (30/60/90/180 days) with live progress streaming to the UI. Already-processed emails are skipped, failed classifications are retried on the next sync, and manual edits are never overwritten"
             },
             {
-                "header": "Hybrid Classification",
-                "body": "Deterministic regex parser runs first and covers the majority of emails at minimum cost. Only unresolved emails reach the local Ollama LLM, and regex always stays authoritative for company name and role to prevent hallucination"
+                "header": "Local-Only AI Classification",
+                "body": "A deterministic parser covers the common job boards first; only the ambiguous remainder reaches a local Ollama model. No cloud API, no key, and no inbox data leaving the machine"
             },
             {
                 "header": "Smart Dedup and Matching",
-                "body": "Company matching uses a union of domain and name probes, treats descriptor suffixes (Technologies, Solutions) as the same entity, and uses job numbers as the strongest dedup key to prevent duplicate records"
+                "body": "Confirmations, interviews, and rejections for the same job merge into one card, even when company names are spelled differently across emails, with job requisition numbers as the strongest dedup key"
             },
             {
                 "header": "Board and Table Views",
-                "body": "Kanban board with collapsible columns, sortable table with pagination, live search, provenance badges (Imported, Parser, AI), and a stats bar: Total, Active, Offers, Interview Rate"
+                "body": "Kanban board with collapsible columns and drag between statuses, sortable table with pagination, shared live search, provenance badges (Imported, Parser, AI), and links back to the source Gmail messages on every card"
             },
             {
                 "header": "CSV Import and Export",
-                "body": "Import applications without connecting Gmail at all, or export to a portable 12-column CSV that opens in Excel or Google Sheets. The export is fully re-importable, so your data stays usable outside the app entirely"
+                "body": "Import applications without connecting Gmail at all, or export to a portable CSV that opens in Excel or Google Sheets. The export is fully re-importable, so your data stays usable outside the app entirely"
+            },
+            {
+                "header": "Packaged Desktop App",
+                "body": "An Electron launcher starts and stops everything, manages Ollama and its models, and holds configuration. Ships as a Windows installer or portable zip that needs nothing preinstalled and keeps itself current with automatic updates"
             }
         ],
         "walkthrough": [
             {
-                "header": "Application Board",
-                "subheader": "All your applications at a glance",
+                "header": "Kanban Board with Gmail Sync",
+                "subheader": "A board that fills itself",
                 "imagePath": "/images/job-tracker/board.png",
-                "description": "Four Kanban columns (Applied, Interview, Offer, Rejected) each collapsible to 3 cards with a Show More expander. A live search bar above the board filters cards by company or role in real time. Cards display company, role, interview stage pill, provenance badges (Parser, AI, Imported), dates, and a notes preview. A stats bar at the top tracks Total, Active, Offers, and Interview Rate. The Interview Rate uses a sticky flag so interviewed-then-rejected applications still count, with a manual override checkbox for edge cases.",
+                "description": "Connect Gmail with read-only access, pick a scan window (30/60/90/180 days), and watch applications stream onto the board in real time, landing with a NEW badge. Each card shows how it was classified (Parser, AI, or Imported), a Fast Applied badge for LinkedIn and Indeed quick applies, and a chip for each tracked email linking back to the Gmail message behind that status change. Re-syncs skip already-processed emails and never touch manual edits.",
                 "keyTerms": [
-                    "Kanban board"
+                    "Gmail OAuth (read-only)",
+                    "Local Ollama classification",
+                    "Real-time sync progress",
+                    "Gmail source links"
                 ]
             },
             {
                 "header": "Table View",
                 "subheader": "Sort, search, and filter",
                 "imagePath": "/images/job-tracker/table.png",
-                "description": "An alternative to the board for a denser view of all applications. Sortable columns, 25-row pagination, and the same live search bar shared with the board view. Newly synced or imported rows are highlighted with a green left border. Provenance badges appear inline in the Company column, and edit/delete buttons show on row hover.",
+                "description": "A denser alternative to the board with sortable columns, pagination, and the same live search. New rows are highlighted with a green border, badges and email chips carry over inline, and rows with an undetected role are flagged for a quick manual fix.",
                 "keyTerms": [
-                    "Sortable table"
-                ]
-            },
-            {
-                "header": "Gmail Sync",
-                "subheader": "Inbox to board automatically",
-                "imagePath": "/images/job-tracker/sync.png",
-                "description": "Connects via Google OAuth and scans Gmail with a tuned query combining a positive job-phrase group with a large noise-exclusion list. Choose a scan window (30/60/90/180 days) from the header dropdown and hit Sync Gmail. A real-time progress bar and live count update inline next to the button as each batch lands, and a summary line shows exactly what was added or updated once the sync completes. Each synced message ID is stored so re-syncs never reprocess old mail.",
-                "keyTerms": [
-                    "Google OAuth",
-                    "Scan window",
-                    "Real-time progress"
+                    "Sortable columns",
+                    "Server-side live search",
+                    "Sync highlights",
+                    "Pagination"
                 ]
             },
             {
                 "header": "CSV Import and Export",
                 "subheader": "Your data, anywhere, no sync required",
                 "imagePath": "/images/job-tracker/csv.png",
-                "description": "Export any time to a clean 12-column CSV (Company, Role, Status, Stage, Reached Interview, Date Applied, Last Response, Job URL, Notes, Source, Company Domain, Job ID) that opens directly in Excel or Google Sheets. Import works independently of Gmail sync, so users who prefer not to connect their inbox can still track every application by uploading a CSV manually. The file is also fully re-importable: Company Domain and Job ID are included in the export so any row re-imported later merges onto the correct existing record instead of creating a duplicate. Application data stays portable and readable outside the app entirely.",
+                "description": "Import applications without ever connecting Gmail, or export everything to a CSV that opens directly in Excel or Google Sheets. Exports carry the company domain and job ID, so a re-imported file merges onto existing records instead of creating duplicates.",
                 "keyTerms": [
                     "Gmail-free import",
                     "Excel compatible",
@@ -84,11 +84,23 @@
                 "header": "Add and Edit Applications",
                 "subheader": "Manual tracking with smart fields",
                 "imagePath": "/images/job-tracker/modal.png",
-                "description": "A clean modal for adding or editing any application manually. Fields include Company, Role, Status, Date Applied, Last Response, Job URL, and Notes. The Interview Stage dropdown appears only when status is set to Interview. For rejected applications, a Reached Interview checkbox is shown to ensure the interview rate stays accurate even after a rejection. User-edited notes are never overwritten by a future sync.",
+                "description": "Add or edit any application by hand, with an Interview Stage dropdown that appears only for interviews and an Interviewed Before Rejection checkbox that keeps the interview rate accurate. A Tracked Emails section lists every linked Gmail message and lets you attach or detach one by pasting a Gmail link.",
                 "keyTerms": [
                     "Manual add/edit",
-                    "Conditional fields",
+                    "Tracked email manager",
                     "Notes protection"
+                ]
+            },
+            {
+                "header": "Desktop Launcher",
+                "subheader": "One window runs everything",
+                "imagePath": "/images/job-tracker/launcher.png",
+                "description": "An Electron launcher starts and stops the whole stack, installs Ollama and its model if missing, and holds all configuration in a built-in Config panel. It ships as a Windows installer or portable zip that runs with nothing preinstalled and updates itself with a changelog and live download progress.",
+                "keyTerms": [
+                    "Electron",
+                    "Self-updating (Velopack)",
+                    "Ollama management",
+                    "Zero prerequisites"
                 ]
             }
         ]
@@ -96,6 +108,6 @@
     "images": {
         "cover": "/images/job-tracker/cover.png"
     },
-    "lastUpdate": "2026-06-02",
-    "inDevelopment": true
+    "lastUpdate": "2026-07-17",
+    "inDevelopment": false
 }
