@@ -4,15 +4,19 @@ export type ProjectBrief = {
     imageLink: string,
     jsonName: string,
     lastUpdate: string,
-    inDevelopment?: boolean
+    inDevelopment?: boolean,
+    order: number
 }
 
 export type ProjectContentJson = {
+    order?: number,
     heroSection: HeroSectionJson,
     mainContent: MainContentJson,
     techStack: string [],
     images: ImagePathContainer,
-    lastUpdate: string,
+    lastUpdate?: string,
+    lastEdited?: string,
+    lastCommit?: string,
     inDevelopment?: boolean
 }
 

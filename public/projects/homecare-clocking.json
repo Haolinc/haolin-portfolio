@@ -1,9 +1,11 @@
 {
+    "order": 1,
     "heroSection": {
         "title": "Homecare Clocking",
         "subTitle": "React Web + Android App",
         "description": "React web utility and companion Android app to automate employee attendance tracking and minimize manual logging.",
-        "liveWebsite": "https://haolinc.github.io/Homecare-Clocking-Dial-Uri-Generator/"
+        "liveWebsite": "https://haolinc.github.io/Homecare-Clocking-Dial-Uri-Generator/",
+        "githubWebsite": "https://github.com/Haolinc/Homecare-Clocking-Dial-Uri-Generator"
     },
     "techStack": [
         "React",

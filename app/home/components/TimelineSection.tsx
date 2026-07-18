@@ -4,7 +4,7 @@ export default function TimelineSection(){
     return <section id="timeline" className="py-20 bg-slate-50">
         <div className="max-w-6xl mx-auto px-6">
             <h2 className="text-5xl font-bold text-center md:text-left mb-4">Experience</h2>
-            <p className="text-center md:text-left text-slate-500 mb-12">Professional history and freelance engagements.</p>
+            <p className="text-center md:text-left text-slate-500 mb-12">Professional history and independent works.</p>
             <div className="flex flex-col mt-12">
                 {/* 3 sections */}
                 {

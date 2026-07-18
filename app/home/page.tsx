@@ -6,7 +6,6 @@ import { getProjects } from './fileHelper';
 
 export default async function Portfolio() {
     const projectBreifs = await getProjects();
-    projectBreifs.sort((a, b) => b.lastUpdate.localeCompare(a.lastUpdate));
     return (
         <div className="min-h-screen bg-white text-slate-900">
             <Header/>

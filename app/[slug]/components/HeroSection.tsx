@@ -1,6 +1,14 @@
 import { HeroSectionJson } from '../../../types/projectJsonTypes'
 import ImageWithFallback from '../../components/ImageWithFallback'
-export default function HeroSection({heroSectionJson, coverImagePath, inDevelopment}: {heroSectionJson: HeroSectionJson, coverImagePath: string, inDevelopment?: boolean}){
+function formatDate(isoDate: string): string {
+    const [year, month, day] = isoDate.split('-').map(Number);
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    if (!year || !month || !day || month < 1 || month > 12)
+        return isoDate;
+    return `${monthNames[month - 1]} ${day}, ${year}`;
+}
+
+export default function HeroSection({heroSectionJson, coverImagePath, inDevelopment, lastEdited, lastCommit}: {heroSectionJson: HeroSectionJson, coverImagePath: string, inDevelopment?: boolean, lastEdited?: string, lastCommit?: string}){
     return (
         <header className="pt-20 bg-linear-to-br from-slate-50 to-white border-b">
             <div className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
@@ -32,6 +40,13 @@ export default function HeroSection({heroSectionJson, coverImagePath, inDevelopm
                             </a> : <></>
                         }
                     </div>
+                    {
+                        (lastEdited || lastCommit) &&
+                        <div className="mt-6 text-sm text-slate-400">
+                            {lastEdited && <p>Last page edit: {formatDate(lastEdited)}</p>}
+                            {lastCommit && <p>Last github commit: {formatDate(lastCommit)}</p>}
+                        </div>
+                    }
                 </div>
                 <ImageWithFallback src={coverImagePath} className="rounded-3xl shadow-2xl order-first md:order-last" alt={heroSectionJson.title} />
             </div>
