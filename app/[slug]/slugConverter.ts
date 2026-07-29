@@ -1,5 +1,5 @@
 import { ProjectContentJson } from '@/types/projectJsonTypes';
-import { getLastEditedDate, getLatestCommitDate } from '@/app/lastEditHelper';
+import { PORTFOLIO_REPO, fetchLatestCommitDate, parseGithubRepo, projectJsonPath } from '@/app/lastEditHelper';
 import fs from 'fs/promises';
 import path from 'path';
 
@@ -8,8 +8,8 @@ export async function getProjectData(slug: string): Promise<ProjectContentJson |
         const filePath = path.join(process.cwd(), 'public', 'projects', `${slug}.json`);
         const fileContents = await fs.readFile(filePath, 'utf8');
         const content: ProjectContentJson = JSON.parse(fileContents);
-        content.lastEdited = await getLastEditedDate(filePath) || content.lastUpdate;
-        content.lastCommit = await getLatestCommitDate(content.heroSection.githubWebsite);
+        content.lastEdited = await fetchLatestCommitDate(PORTFOLIO_REPO, projectJsonPath(slug)) || content.lastUpdate;
+        content.lastCommit = await fetchLatestCommitDate(parseGithubRepo(content.heroSection.githubWebsite));
         return content;
     } catch (error) {
         return null;

@@ -1,5 +1,4 @@
 import { ProjectContentJson, ProjectBrief } from '@/types/projectJsonTypes';
-import { getLastEditedDate } from '@/app/lastEditHelper';
 import path from 'path';
 import fs from 'fs/promises';
 
@@ -19,7 +18,7 @@ export async function getProjects(): Promise<ProjectBrief[]> {
                         description: jsonFile.heroSection.description,
                         imageLink: jsonFile.images.cover,
                         jsonName: filename.replace(".json", ""),
-                        lastUpdate: await getLastEditedDate(filePath) || jsonFile.lastUpdate || "",
+                        lastUpdate: jsonFile.lastUpdate || "",
                         inDevelopment: jsonFile.inDevelopment,
                         order: jsonFile.order || 0
                     }

@@ -1,14 +1,8 @@
 import { HeroSectionJson } from '../../../types/projectJsonTypes'
 import ImageWithFallback from '../../components/ImageWithFallback'
-function formatDate(isoDate: string): string {
-    const [year, month, day] = isoDate.split('-').map(Number);
-    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    if (!year || !month || !day || month < 1 || month > 12)
-        return isoDate;
-    return `${monthNames[month - 1]} ${day}, ${year}`;
-}
+import ProjectDates from './ProjectDates'
 
-export default function HeroSection({heroSectionJson, coverImagePath, inDevelopment, lastEdited, lastCommit}: {heroSectionJson: HeroSectionJson, coverImagePath: string, inDevelopment?: boolean, lastEdited?: string, lastCommit?: string}){
+export default function HeroSection({heroSectionJson, coverImagePath, slug, inDevelopment, lastEdited, lastCommit}: {heroSectionJson: HeroSectionJson, coverImagePath: string, slug: string, inDevelopment?: boolean, lastEdited?: string, lastCommit?: string}){
     return (
         <header className="pt-20 bg-linear-to-br from-slate-50 to-white border-b">
             <div className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
@@ -40,13 +34,7 @@ export default function HeroSection({heroSectionJson, coverImagePath, inDevelopm
                             </a> : <></>
                         }
                     </div>
-                    {
-                        (lastEdited || lastCommit) &&
-                        <div className="mt-6 text-sm text-slate-400">
-                            {lastEdited && <p>Last page edit: {formatDate(lastEdited)}</p>}
-                            {lastCommit && <p>Last github commit: {formatDate(lastCommit)}</p>}
-                        </div>
-                    }
+                    <ProjectDates slug={slug} githubWebsite={heroSectionJson.githubWebsite} lastEdited={lastEdited} lastCommit={lastCommit}/>
                 </div>
                 <ImageWithFallback src={coverImagePath} className="rounded-3xl shadow-2xl order-first md:order-last" alt={heroSectionJson.title} />
             </div>

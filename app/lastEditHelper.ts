@@ -1,28 +1,28 @@
-import fs from 'fs/promises';
+// The site is built with `output: "export"`, so anything resolved on the server is
+// frozen at build time. These helpers run on the server for the initial HTML and again
+// in the browser (see ProjectDates) so the dates stay current between deployments.
 
-// Filesystem modification time of the file, as yyyy-mm-dd.
-export async function getLastEditedDate(filePath: string): Promise<string | undefined> {
-    try {
-        const stats = await fs.stat(filePath);
-        return stats.mtime.toISOString().slice(0, 10);
-    } catch {
-        return undefined;
-    }
+export const PORTFOLIO_REPO = "Haolinc/haolin-portfolio";
+
+export function projectJsonPath(slug: string): string {
+    return `public/projects/${slug}.json`;
 }
 
-// Latest commit date on the default branch of the project's GitHub repo, as yyyy-mm-dd.
-export async function getLatestCommitDate(githubUrl?: string): Promise<string | undefined> {
-    if (!githubUrl)
-        return undefined;
-    const match = githubUrl.match(/github\.com\/([^/]+)\/([^/#?]+)/);
+// "https://github.com/Haolinc/job-tracker" -> "Haolinc/job-tracker"
+export function parseGithubRepo(githubUrl?: string): string | undefined {
+    const match = githubUrl?.match(/github\.com\/([^/]+)\/([^/#?]+)/);
     if (!match)
         return undefined;
-    const [, owner, repo] = match;
+    return `${match[1]}/${match[2].replace(/\.git$/, "")}`;
+}
+
+// Date of the latest commit on the repo's default branch, optionally narrowed to one file.
+export async function fetchLatestCommitDate(repo?: string, filePath?: string): Promise<string | undefined> {
+    if (!repo)
+        return undefined;
+    const pathQuery = filePath ? `&path=${encodeURIComponent(filePath)}` : "";
     try {
-        const response = await fetch(
-            `https://api.github.com/repos/${owner}/${repo.replace(/\.git$/, '')}/commits?per_page=1`,
-            { next: { revalidate: 3600 } }
-        );
+        const response = await fetch(`https://api.github.com/repos/${repo}/commits?per_page=1${pathQuery}`);
         if (!response.ok)
             return undefined;
         const commits = await response.json();
