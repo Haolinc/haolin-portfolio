@@ -3,7 +3,7 @@
     "heroSection": {
         "title": "Job Tracker",
         "subTitle": "Gmail-Synced Desktop App",
-        "description": "A Kanban board that fills itself: job applications auto-synced from Gmail and classified by a local AI, so your inbox never leaves your machine.",
+        "description": "A Kanban board that fills itself, with job applications auto-synced from Gmail and classified by a local AI, so your inbox never leaves your machine.",
         "githubWebsite": "https://github.com/Haolinc/job-tracker"
     },
     "techStack": [
@@ -18,7 +18,7 @@
         "Gmail OAuth API"
     ],
     "mainContent": {
-        "overview": "Built and packaged a full-stack job application tracker that connects to Gmail (read-only) and classifies emails into applications, interviews, offers, and rejections through a hybrid pipeline: a deterministic parser handles the common job boards, and a local Ollama LLM handles the rest, so no inbox data ever leaves the machine. Applications surface in a Kanban board and sortable table backed by SQLite, and an Electron desktop launcher packages everything into a self-updating Windows app that runs with nothing preinstalled.",
+        "overview": "Built and packaged a full-stack job application tracker that connects to Gmail (read-only) and classifies emails into applications, interviews, offers, and rejections through a hybrid pipeline, where a deterministic parser handles the common job boards and a local Ollama LLM handles the rest, so no inbox data ever leaves the machine. Applications surface in a Kanban board and sortable table backed by SQLite, and an Electron desktop launcher packages everything into a self-updating Windows app that runs with nothing preinstalled.",
         "keyFeature": [
             {
                 "header": "Gmail Sync Pipeline",

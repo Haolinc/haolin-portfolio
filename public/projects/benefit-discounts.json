@@ -1,0 +1,78 @@
+{
+    "order": 5,
+    "heroSection": {
+        "title": "Benefit Discounts",
+        "subTitle": "Benefits-First Discount Directory",
+        "liveWebsite": "https://benefitdiscounts.org",
+        "description": "A public directory of the discounts companies offer to people on federal financial support programs such as SNAP, Medicaid, or SSI. Pick the benefits you actually hold and the list narrows to what is open to you, with every entry linked to the operator's own page."
+    },
+    "techStack": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Neon Postgres",
+        "PGlite (WASM)",
+        "Drizzle ORM",
+        "Zod",
+        "Auth.js",
+        "Tailwind CSS",
+        "Vitest",
+        "GitHub Actions"
+    ],
+    "mainContent": {
+        "overview": "Built a public directory of the discounts that private companies, state governments, and cultural institutions offer to people on SNAP, Medicaid, SSI, and similar benefit programs. Readers pick the benefits they hold and the list narrows to matching offers, with category, state, and keyword filters on top. Every entry links out to the company's own page for the real terms. The site never calculates eligibility, never asks for personal documents, and carries no affiliate links. Built with Next.js and Postgres, with an authenticated admin panel for managing entries.",
+        "keyFeature": [
+            {
+                "header": "Benefit-First Filtering",
+                "body": "Pick the benefits you actually hold, such as SNAP, Medicaid, or SSI, and the list narrows to the offers open to you. Category, state, and keyword filters layer on top, and results update as you change them"
+            },
+            {
+                "header": "Offers Collected in One Place",
+                "body": "Discounts and assistance programs from private companies, state governments and cultural institutions, gathered into a single searchable list instead of sitting scattered across separate company pages that rarely link to one another"
+            },
+            {
+                "header": "No Eligibility Guessing",
+                "body": "The site never calculates whether you qualify, never asks for a document, photo, or form, and carries no affiliate links anywhere. It shows what the company itself says and leaves the decision to you"
+            },
+            {
+                "header": "Straight to the Source",
+                "body": "Every entry links to the company's own page for that offer, so you are always one click from the authoritative terms instead of a summary that may have drifted out of date"
+            },
+            {
+                "header": "Open to Everyone, No Account",
+                "body": "No sign-up, no login, and no cookie wall. Pages load pre-rendered without waiting on a database, so the directory stays fast and fully readable even with JavaScript turned off"
+            }
+        ],
+        "walkthrough": [
+            {
+                "header": "Benefit-First Directory",
+                "subheader": "Pick what you hold, see what is open",
+                "imagePath": "/images/benefit-discounts/directory.png",
+                "description": "The directory is organized by benefit instead of by category. Pick SNAP, Medicaid, or SSI and the list narrows to offers that name that benefit, then add category, state, and keyword filters to narrow it further. Every active filter applies at once, and results update instantly without reloading the page. Built with Next.js and fully pre-rendered, so pages load fast and stay readable even with JavaScript turned off.",
+                "keyTerms": [
+                    "Next.js pre-rendered",
+                    "Filter by benefit",
+                    "Instant results",
+                    "Works without JavaScript"
+                ]
+            },
+            {
+                "header": "Admin Panel",
+                "subheader": "Authenticated editing with tagged cache invalidation",
+                "imagePath": "/images/benefit-discounts/admin.png",
+                "description": "A GitHub login restricted to an approved email address opens the admin panel for adding and editing entries. Every field is checked against the same rules the database enforces, so incomplete or malformed entries never make it in. Saving an entry refreshes only the pages that show it, which keeps the public site pre-rendered and fast for everyone reading it.",
+                "keyTerms": [
+                    "GitHub OAuth login",
+                    "Approved emails only",
+                    "Validated entry form",
+                    "Auto-refreshing pages"
+                ]
+            }
+        ]
+    },
+    "images": {
+        "cover": "/images/benefit-discounts/cover.png"
+    },
+    "lastUpdate": "2026-09-07",
+    "inDevelopment": false
+}
