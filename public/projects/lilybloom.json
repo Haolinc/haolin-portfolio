@@ -3,14 +3,20 @@
     "heroSection": {
         "title": "Lily Bloom Bakery Showcase",
         "subTitle": "Full-Stack Showcase Website",
-        "description": "A beautiful, multilingual online showcase + admin dashboard built and deployed for a local Brooklyn bakery.",
-        "liveWebsite": "https://lilybloom-showcase.com/"
+        "description": "A beautiful, multilingual online showcase + admin dashboard built and deployed for a local Brooklyn bakery."
     },
     "techStack": [
-        "Next.js", "Spring Boot", "MongoDB", "TypeScript", "Javascript", "AWS (Elastic Beanstalk, Amplify, CloudFront, S3)", "Material UI", "React-Admin"
+        "Next.js",
+        "Spring Boot",
+        "MongoDB",
+        "TypeScript",
+        "Javascript",
+        "AWS (Elastic Beanstalk, Amplify, CloudFront, S3)",
+        "Material UI",
+        "React-Admin"
     ],
     "mainContent": {
-        "overview": "Developed and launched a complete full-stack showcase website for a local bakery. The platform features server-side rendering, multilingual support (English & Simplified Chinese), a full admin dashboard, and an automated bulk import pipeline.",
+        "overview": "Developed and launched a complete full-stack showcase website for a local bakery. The platform featured server-side rendering, multilingual support (English & Simplified Chinese), a full admin dashboard, and an automated bulk import pipeline. The site has since been taken offline.",
         "keyFeature": [
             {
                 "header": "SSR + Multilingual",
@@ -79,5 +85,5 @@
     "images": {
         "cover": "/images/lilybloom/cover.png"
     },
-    "lastUpdate": "2026-03-24"
+    "lastUpdate": "2026-10-12"
 }

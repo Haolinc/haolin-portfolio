@@ -4,7 +4,7 @@
         "title": "Benefit Discounts",
         "subTitle": "Benefits-First Discount Directory",
         "liveWebsite": "https://benefitdiscounts.org",
-        "description": "A public directory of the discounts companies offer to people on federal financial support programs such as SNAP, Medicaid, or more. Pick the benefits you actually hold and the list narrows to what is open to you, with every entry linked to the operator's own page."
+        "description": "A public directory of the discounts companies offer to people on federal financial support programs such as SNAP, Medicaid, or more."
     },
     "techStack": [
         "Next.js",
@@ -14,6 +14,7 @@
         "PGlite (WASM)",
         "Drizzle ORM",
         "Zod",
+        "next-intl",
         "Auth.js",
         "Tailwind CSS",
         "Vitest",
@@ -21,31 +22,35 @@
         "Vercel"
     ],
     "mainContent": {
-        "overview": "Built and launched a public directory of the discounts that private companies, state governments, and cultural institutions offer to people on SNAP, Medicaid, SSI, and similar benefit programs. Readers pick the benefits they hold and the list narrows to matching offers, with state, category, and keyword filters on top. Every entry links to the operator's own page and shows the last time it was checked, while a weekly sweep re-reads each source page to catch offers that have changed. The site never calculates eligibility, never collects anything from readers, and carries no affiliate links. Built with Next.js and Postgres on Vercel.",
+        "overview": "Built and launched a public directory of the discounts that private companies, state governments, and cultural institutions offer to people on SNAP, Medicaid, SSI, and similar benefit programs. Readers pick their benefits and state to see matching offers in three languages, each linked to the provider's official page and rechecked weekly. Built with Next.js and Postgres on Vercel.",
         "keyFeature": [
             {
                 "header": "Benefit-First Filtering",
-                "body": "Pick the benefits you actually hold, such as SNAP, Medicaid, or other benefit programs, and the list narrows to the offers open to you. Choose your state and each benefit appears under the name your state uses for it, with category and keyword filters layered on top"
+                "body": "Pick the benefits you hold and your state, and the list narrows to the offers open to you"
             },
             {
-                "header": "Offers Collected in One Place",
-                "body": "Discounts and assistance programs from private companies, state governments and cultural institutions, gathered into a single searchable list instead of sitting scattered across separate company pages that rarely link to one another"
+                "header": "All Offers in One Place",
+                "body": "Discounts from private companies, state governments, and cultural institutions in one searchable list instead of scattered across separate sites"
+            },
+            {
+                "header": "Three Languages",
+                "body": "English, Spanish, and Chinese in both Simplified and Traditional scripts, with translations held back whenever the English entry changes"
             },
             {
                 "header": "Checked Every Week",
-                "body": "Every entry shows the last time it was checked, and a weekly sweep re-reads each source page after that. If a page has changed since the last check, its entry says so, and a page that cannot be read automatically is labeled plainly instead of left looking current"
+                "body": "Every entry shows when it was last checked, and a weekly sweep flags any source page that has changed since"
             },
             {
                 "header": "Straight to the Source",
-                "body": "Every entry links to the company's own page for that offer, so you are always one click from the authoritative terms instead of a summary that may have drifted out of date"
+                "body": "Every entry links to the provider's official page, one click from the authoritative terms"
             },
             {
                 "header": "No Eligibility Guessing",
-                "body": "The site never calculates whether you qualify, never asks for a document, photo, or form, and carries no affiliate links anywhere. It shows what the company itself says and leaves the decision to you"
+                "body": "Never calculates whether you qualify, never asks for documents, and carries no affiliate links"
             },
             {
                 "header": "Private by Design",
-                "body": "No account, no sign-up, and nothing collected about you. Your filters stay in your own browser and are kept out of the address bar, and you can save them on your device or share a filtered view whenever you choose"
+                "body": "No account and nothing collected. Filters and your saved list stay on your device, with a printer-friendly view"
             }
         ],
         "walkthrough": [
@@ -53,35 +58,47 @@
                 "header": "Benefit-First Directory",
                 "subheader": "Pick what you hold, see what is open",
                 "imagePath": "/images/benefit-discounts/directory.png",
-                "description": "The directory is organized by benefit, location, and category. One control card asks where you live, what you have, and what you want it to cover, and the list narrows as you answer. Search also matches participating companies and locations, and results sort by name, company, last checked, or date added. The whole list is pre-rendered, so it loads fast and stays readable even with JavaScript turned off.",
+                "description": "One control card asks where you live, what you have, and what you want covered, and the list narrows as you answer. Search forgives typos, results sort four ways, and any program can be saved to a list on your device that has its own tab and a printer-friendly view. Pages are pre-rendered and readable without JavaScript.",
                 "keyTerms": [
                     "Next.js pre-rendered",
                     "Filter by benefit and state",
-                    "Sort and search",
-                    "Works without JavaScript"
+                    "Typo-tolerant search",
+                    "Saved list"
                 ]
             },
             {
                 "header": "Program Details",
                 "subheader": "Everything about one offer on one page",
                 "imagePath": "/images/benefit-discounts/detail.png",
-                "description": "Each program gets its own page with the full benefit detail, a link to the official page, and the last time it was checked. Benefits show the name your state uses for them, and programs that run through many venues, such as museum admission, providing a location url for every participating location. The page also reports what the weekly sweep found, whether nothing has changed, the page has changed, or it cannot be read automatically.",
+                "description": "Each program has its own page with the full benefit detail, the official link, and the last checked date. Benefits appear under your state's name for them, and multi-venue programs link to every participating location. The page flags a changed source and offers a link to report a problem.",
                 "keyTerms": [
                     "Participating locations",
                     "State benefit names",
                     "Last checked date",
-                    "Change status"
+                    "Report a problem"
+                ]
+            },
+            {
+                "header": "Three Languages",
+                "subheader": "The same list in English, Spanish, and Chinese",
+                "imagePath": "/images/benefit-discounts/languages.png",
+                "description": "The whole site is available in English, Spanish, and Chinese in both Simplified and Traditional scripts. Each language lives at its own address, and your browser's language is picked by default. When an English entry changes, its translations are held back until they are reviewed, so no language shows an older offer.",
+                "keyTerms": [
+                    "next-intl",
+                    "Language switcher",
+                    "Simplified and Traditional Chinese",
+                    "Stale-proof translations"
                 ]
             },
             {
                 "header": "Admin Panel",
                 "subheader": "A queue of what needs checking next",
                 "imagePath": "/images/benefit-discounts/admin.png",
-                "description": "A GitHub login restricted to approved email addresses opens a queue sorted by what was checked longest ago, with a column that flags pages that changed since they were last verified. Marking an entry verified takes one click, and every field is validated before it saves. The panel also downloads a full backup, restores one after checking every row, and adds new programs from a file without overwriting existing ones.",
+                "description": "A GitHub login limited to approved emails opens a queue sorted by what was checked longest ago, flagging pages that changed since. Verifying an entry takes one click, and translations are edited next to their English. The panel also handles backup, restore, and file imports.",
                 "keyTerms": [
                     "GitHub OAuth login",
                     "Staleness queue",
-                    "One-click verify",
+                    "Translation editing",
                     "Backup and restore"
                 ]
             }
@@ -90,6 +107,6 @@
     "images": {
         "cover": "/images/benefit-discounts/cover.png"
     },
-    "lastUpdate": "2026-09-14",
+    "lastUpdate": "2026-10-12",
     "inDevelopment": false
 }

@@ -5,9 +5,9 @@
         "comapny": "Independent",
         "title": "Full-Stack Software Engineer",
         "duties": [
-            "Built and launched a public benefit discount directory (Next.js + React + Postgres, deployed on Vercel) that organizes offers by the benefit a reader holds, covering private companies, state governments, and cultural institutions. The site pre-renders fully and never opens a database connection on a visitor request, and filtering runs in the browser without ever writing a reader's benefits into the address bar. A weekly GitHub Actions sweep re-reads every source page and fingerprints its text, flagging changed or unreadable pages on the public site and in an admin staleness queue. Backed by Drizzle migrations on PGlite locally and Neon in production, a daily off-site backup, CI guardrails that keep pages readable without JavaScript, and keep database credentials out of the browser.",
+            "Built and launched a public benefit discount directory (Next.js + React + Postgres, deployed on Vercel) that organizes offers by the benefit a reader holds, in English, Spanish, and Chinese (Simplified and Traditional). The site pre-renders fully and never opens a database connection on a visitor request, while filters and a saved list stay on the reader's device. A weekly GitHub Actions sweep fingerprints every source page, flags changed ones on the site and in an admin staleness queue, and emails a digest. Translations store a hash of their English source and are hidden once it changes. Backed by Drizzle migrations on PGlite locally and Neon in production, a daily off-site backup, and CI guardrails that keep pages readable without JavaScript.",
             "Built and released a Gmail-synced job application tracker (React + Express/Node.js + SQLite) that classifies emails entirely on-device through a hybrid pipeline, where a deterministic parser covers the common job boards at zero cost and a local Ollama LLM handles the rest, so no inbox data ever leaves the machine. Smart dedup matching merges records across Gmail and CSV imports using domain probes, company-variant normalization, and ATS requisition numbers, surfacing results in a Kanban board and sortable table where every status change links back to its source Gmail message. Packaged with Electron into a self-updating Windows app (installer and portable, Velopack delta updates) that runs with nothing preinstalled and manages Ollama and its models itself.",
-            "Developed a complete responsive full-stack showcase website for a local bakery featuring dynamic product menu, admin dashboard, multilingual support (EN/ZH), location finder, RESTful APIs with Spring Boot + MongoDB, bulk CSV/XLSX/ZIP imports via AWS S3, and production deployment on AWS (Elastic Beanstalk backend, Amplify frontend, CloudFront security) after migrating from React SPA to Next.js for SSR and major performance gains.",
+            "Developed a complete responsive full-stack showcase website for a local bakery featuring dynamic product menu, admin dashboard, multilingual support (EN/ZH), location finder, RESTful APIs with Spring Boot + MongoDB, bulk CSV/XLSX/ZIP imports via AWS S3, and production deployment on AWS (Elastic Beanstalk backend, Amplify frontend, CloudFront security) after migrating from React SPA to Next.js for SSR and major performance gains. The site ran in production until the project was retired.",
             "Built a full employee attendance solution including a React web utility that generates device-compatible dial URIs and a companion Android app using Kotlin + Jetpack Compose to automate check-in and check-out workflows.",
             "Engineered an autonomous automation tool leveraging image recognition and emulator control libraries to execute repetitive tasks without manual intervention."
         ],
@@ -33,7 +33,8 @@
             "Zod",
             "Auth.js",
             "Vitest",
-            "GitHub Actions"
+            "GitHub Actions",
+            "next-intl"
         ]
     },
     {
