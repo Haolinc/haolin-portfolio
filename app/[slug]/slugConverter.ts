@@ -11,7 +11,7 @@ export async function getProjectData(slug: string): Promise<ProjectContentJson |
         content.lastEdited = await fetchLatestCommitDate(PORTFOLIO_REPO, projectJsonPath(slug)) || content.lastUpdate;
         content.lastCommit = await fetchLatestCommitDate(parseGithubRepo(content.heroSection.githubWebsite));
         return content;
-    } catch (error) {
+    } catch {
         return null;
     }
 
@@ -23,7 +23,7 @@ export async function getAllProjectNames(): Promise<string[]> {
         const allFilenames = await fs.readdir(projectPath);
         const jsonFileNames = allFilenames.filter(filename => filename.endsWith(".json")).map(filename => filename.replace(".json", ""));
         return jsonFileNames;
-    } catch (error) {
+    } catch {
         return [];
     }
 }

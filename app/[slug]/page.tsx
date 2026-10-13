@@ -20,7 +20,7 @@ export default async function ProjectPage({params} : {params: Promise<{ slug: st
         notFound();
 
     return (
-        <div className="min-h-screen bg-white text-slate-900">
+        <div className="min-h-screen">
             <TopNavigation/>
             <HeroSection heroSectionJson={pageContent.heroSection} coverImagePath={pageContent.images.cover} slug={slug} inDevelopment={pageContent.inDevelopment} lastEdited={pageContent.lastEdited} lastCommit={pageContent.lastCommit}/>
             <div className="max-w-6xl mx-auto px-6 py-20 grid gap-12">

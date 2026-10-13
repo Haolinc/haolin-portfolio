@@ -3,7 +3,7 @@
     "heroSection": {
         "title": "Job Tracker",
         "subTitle": "Gmail-Synced Desktop App",
-        "description": "A Kanban board that fills itself, with job applications auto-synced from Gmail and classified by a local AI, so your inbox never leaves your machine.",
+        "description": "A Kanban board that fills itself, with job applications auto-synced from Gmail and classified by a local AI.",
         "githubWebsite": "https://github.com/Haolinc/job-tracker"
     },
     "techStack": [

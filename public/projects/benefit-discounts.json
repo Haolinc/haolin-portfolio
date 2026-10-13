@@ -11,7 +11,6 @@
         "React",
         "TypeScript",
         "Neon Postgres",
-        "PGlite (WASM)",
         "Drizzle ORM",
         "Zod",
         "next-intl",

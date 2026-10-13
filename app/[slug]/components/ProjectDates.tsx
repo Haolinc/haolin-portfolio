@@ -14,9 +14,7 @@ export default function ProjectDates({slug, githubWebsite, lastEdited, lastCommi
     const [pageEditDate, setPageEditDate] = useState(lastEdited);
     const [codeCommitDate, setCodeCommitDate] = useState(lastCommit);
 
-    // Static export bakes the build-time dates into the HTML, so a project repo that gets
-    // new commits after a deploy would keep showing the old date. Re-read both from GitHub
-    // on mount and keep the build-time values as the fallback if the API is unreachable.
+    // Refresh both dates from GitHub on mount, the build-time values stay as the fallback.
     useEffect(() => {
         let active = true;
         fetchLatestCommitDate(PORTFOLIO_REPO, projectJsonPath(slug))
@@ -30,7 +28,7 @@ export default function ProjectDates({slug, githubWebsite, lastEdited, lastCommi
         return <></>;
 
     return (
-        <div className="mt-6 text-sm text-slate-400">
+        <div className="mt-6 font-mono text-xs text-ink-muted space-y-1">
             {pageEditDate && <p>Last page edit: {formatDate(pageEditDate)}</p>}
             {codeCommitDate && <p>Last github commit: {formatDate(codeCommitDate)}</p>}
         </div>

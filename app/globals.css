@@ -1,18 +1,86 @@
 @import "tailwindcss";
 
+@theme inline {
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+}
+
+@theme {
+  --color-canvas: #f8fafc;
+  --color-canvas-alt: #eef2f7;
+  --color-card: rgb(255 255 255 / 0.85);
+  --color-panel: #f1f5f9;
+  --color-chip: #e8edf3;
+  --color-line: rgb(15 23 42 / 0.1);
+  --color-ink: #0f172a;
+  --color-ink-soft: #475569;
+  --color-ink-muted: #64748b;
+  --color-accent: #047857;
+  --color-accent-strong: #065f46;
+  --color-on-accent: #ffffff;
+  --color-teal: #06b6d4;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--color-canvas);
+  color: var(--color-ink-soft);
+  font-family: var(--font-sans);
 }
 
-.hero-bg {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 40%, #f1f5f9 100%);
+.glass-card {
+  background: var(--color-card);
+  border: 1px solid var(--color-line);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 2px rgb(15 23 42 / 0.04), 0 10px 24px -18px rgb(15 23 42 / 0.18);
 }
 
-.card-hover {
-  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+.glass-card-hover {
+  transition: transform 0.3s ease-out, border-color 0.3s ease-out, box-shadow 0.3s ease-out;
 }
 
-.card-hover:hover {
-  transform: translateY(-12px) rotate(1deg);
-  box-shadow: 0 30px 60px -15px rgb(16 185 129 / 0.3);
+.glass-card-hover:hover {
+  transform: translateY(-2px);
+  border-color: rgb(4 120 87 / 0.45);
+  box-shadow: 0 14px 30px -12px rgb(4 120 87 / 0.25);
+}
+
+.grid-backdrop {
+  background-image:
+    linear-gradient(to right, rgb(15 23 42 / 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(15 23 42 / 0.045) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.button-primary,
+.button-secondary {
+  @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-display font-semibold transition-colors;
+}
+
+.button-primary {
+  @apply bg-accent text-on-accent hover:bg-accent-strong;
+}
+
+.button-secondary {
+  @apply bg-chip text-ink border border-line hover:border-accent hover:text-accent;
+}
+
+.tech-chip {
+  @apply px-2.5 py-1 rounded bg-chip font-mono text-xs text-ink-soft;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .glass-card-hover,
+  .glass-card-hover:hover {
+    transition: none;
+    transform: none;
+  }
 }

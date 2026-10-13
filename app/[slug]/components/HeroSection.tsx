@@ -4,39 +4,43 @@ import ProjectDates from './ProjectDates'
 
 export default function HeroSection({heroSectionJson, coverImagePath, slug, inDevelopment, lastEdited, lastCommit}: {heroSectionJson: HeroSectionJson, coverImagePath: string, slug: string, inDevelopment?: boolean, lastEdited?: string, lastCommit?: string}){
     return (
-        <header className="pt-20 bg-linear-to-br from-slate-50 to-white border-b">
-            <div className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
+        <header className="relative overflow-hidden pt-16 border-b border-line">
+            <div className="absolute inset-0 grid-backdrop pointer-events-none"></div>
+            <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-180 h-85 bg-accent/10 blur-[130px] rounded-full pointer-events-none"></div>
+            <div className="relative max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <div className="flex items-center gap-3 mt-6">
-                        <h1 className="text-6xl font-bold tracking-tighter leading-none">{heroSectionJson.title}</h1>
+                    <p className="font-mono text-xs uppercase tracking-wider text-accent mb-3">{heroSectionJson.subTitle}</p>
+                    <div className="flex flex-wrap items-center gap-3">
+                        <h1 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-ink">{heroSectionJson.title}</h1>
                         {inDevelopment && (
-                            <span className="text-sm font-medium px-3 py-1 rounded-full bg-amber-100 text-amber-700 border border-amber-200 self-end mb-1">In Development</span>
+                            <span className="font-mono text-xs font-medium px-3 py-1 rounded-full bg-amber-100 text-amber-800 border border-amber-300">In Development</span>
                         )}
                     </div>
-                    <p className="text-3xl text-emerald-600 mt-3">{heroSectionJson.subTitle}</p>
-                    <p className="mt-6 max-w-md text-lg text-slate-600">
+                    <p className="mt-6 max-w-md leading-relaxed text-ink-soft">
                         {heroSectionJson.description}
                     </p>
-                    <div className="mt-8 flex gap-4">
+                    <div className="mt-8 flex flex-wrap gap-4">
                         {
-                            heroSectionJson.liveWebsite ? 
-                            <a href={heroSectionJson.liveWebsite} target="_blank"
-                            className="bg-emerald-600 text-white px-8 py-4 rounded-full font-semibold shadow-lg flex items-center gap-2 hover:bg-emerald-700">
+                            heroSectionJson.liveWebsite ?
+                            <a href={heroSectionJson.liveWebsite} target="_blank" rel="noopener noreferrer"
+                            className="button-primary">
                                 See Live Website
                             </a> : <></>
                         }
 
                         {
-                            heroSectionJson.githubWebsite ? 
-                            <a href={heroSectionJson.githubWebsite} target="_blank"
-                            className="border border-emerald-600 px-7 py-4 rounded-full flex items-center gap-2 font-medium">
+                            heroSectionJson.githubWebsite ?
+                            <a href={heroSectionJson.githubWebsite} target="_blank" rel="noopener noreferrer"
+                            className="button-secondary">
                                 Github Source Code
                             </a> : <></>
                         }
                     </div>
                     <ProjectDates slug={slug} githubWebsite={heroSectionJson.githubWebsite} lastEdited={lastEdited} lastCommit={lastCommit}/>
                 </div>
-                <ImageWithFallback src={coverImagePath} className="rounded-3xl shadow-2xl order-first md:order-last" alt={heroSectionJson.title} />
+                <div className="glass-card rounded-2xl p-2 order-first md:order-last">
+                    <ImageWithFallback src={coverImagePath} className="rounded-xl w-full" alt={heroSectionJson.title} />
+                </div>
             </div>
         </header>
     )

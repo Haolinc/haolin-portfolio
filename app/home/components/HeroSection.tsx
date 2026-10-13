@@ -1,41 +1,31 @@
-'use client';
-import { motion } from 'framer-motion';
 import ImageWithFallback from '../../components/ImageWithFallback';
 
 export default function HeroSection(){
-    return <section className="hero-bg pt-5 md:pt-0 md:min-h-screen flex items-center relative">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-12 gap-8 items-center">
-            <div className="md:col-span-7">
-                <motion.h1 
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="text-7xl font-bold leading-none tracking-tighter"
-                >
-                    Hao Lin Chen
-                </motion.h1>
-                
-                <p className="text-4xl text-emerald-600 mt-3 font-medium">Full-Stack & Test Engineer</p>
-                
-                <p className="mt-6 text-lg text-slate-600 max-w-lg">
-                    Building reliable software, one test at a time.
-                </p>
+    return <section id="top" className="relative overflow-hidden pt-16">
+        <div className="absolute inset-0 grid-backdrop pointer-events-none"></div>
+        <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-180 h-85 bg-accent/10 blur-[130px] rounded-full pointer-events-none"></div>
+        <div className="absolute top-48 right-10 w-95 h-65 bg-teal/10 blur-[110px] rounded-full pointer-events-none"></div>
 
-                <div className="mt-10 flex flex-wrap gap-4">
-                    <a href="#projects" className="bg-emerald-600 text-white px-8 py-4 rounded-full font-semibold flex items-center gap-2 shadow-xl hover:bg-emerald-700">
+        <div className="relative max-w-6xl mx-auto px-6 py-16 md:py-24 grid md:grid-cols-12 gap-10 items-center">
+            <div className="md:col-span-7 flex flex-col gap-5">
+                <span className="w-fit px-3 py-1 rounded-full bg-chip font-mono text-xs text-accent">Full-Stack & Test Engineer</span>
+                <h1 className="font-display text-5xl md:text-6xl font-bold tracking-tight text-ink">Hao Lin Chen</h1>
+                <p className="font-display text-2xl md:text-3xl font-semibold text-accent">Building reliable software, one at a time.</p>
+
+                <div className="mt-4 flex flex-wrap gap-4">
+                    <a href="#projects" className="button-primary">
                         Explore My Work
                     </a>
-                    <a href="#timeline" className="bg-white text-emerald-600 px-8 py-4 rounded-full font-semibold flex items-center gap-2 shadow-xl border-emerald-600 border-2 hover:bg-white">
+                    <a href="#timeline" className="button-secondary">
                         View My Journey
                     </a>
-                    
                 </div>
             </div>
 
-            {/* Profile */}
-            <div className="md:col-span-5 relative flex md:justify-center mb-5">
-                <motion.div className="relative">
-                    <ImageWithFallback src="selfie.png" className="rounded-3xl shadow-2xl border-8 border-white" alt="selfie" />
-                </motion.div>
+            <div className="md:col-span-5 flex md:justify-end">
+                <div className="glass-card rounded-2xl p-2 max-w-sm">
+                    <ImageWithFallback src="selfie.png" className="rounded-xl" alt="Hao Lin Chen" />
+                </div>
             </div>
         </div>
     </section>

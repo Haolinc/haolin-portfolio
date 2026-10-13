@@ -15,16 +15,17 @@ export async function getProjects(): Promise<ProjectBrief[]> {
                     const jsonFile: ProjectContentJson = JSON.parse(file);
                     return {
                         title: jsonFile.heroSection.title,
+                        subTitle: jsonFile.heroSection.subTitle,
                         description: jsonFile.heroSection.description,
+                        techStack: jsonFile.techStack,
                         imageLink: jsonFile.images.cover,
                         jsonName: filename.replace(".json", ""),
-                        lastUpdate: jsonFile.lastUpdate || "",
                         inDevelopment: jsonFile.inDevelopment,
                         order: jsonFile.order || 0
                     }
         }));
         return projectBriefs.sort((a, b) => b.order - a.order);
-    } catch (error) {
+    } catch {
         return [];
     }
 }

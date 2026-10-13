@@ -1,9 +1,10 @@
 export type ProjectBrief = {
     title: string,
+    subTitle: string,
     description: string,
+    techStack: string[],
     imageLink: string,
     jsonName: string,
-    lastUpdate: string,
     inDevelopment?: boolean,
     order: number
 }
@@ -38,7 +39,6 @@ type WalkthroughSection = {
     header: string,
     subheader: string,
     description: string,
-    body: string,
     imagePath: string,
     keyTerms: string[]
 }

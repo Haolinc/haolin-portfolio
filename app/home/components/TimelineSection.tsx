@@ -1,35 +1,46 @@
+import { FiCheckCircle } from 'react-icons/fi';
 import timeline from '@/public/timeline.json'
 
 export default function TimelineSection(){
-    return <section id="timeline" className="py-20 bg-slate-50">
+    return <section id="timeline" className="py-16 md:py-20 scroll-mt-16">
         <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-5xl font-bold text-center md:text-left mb-4">Experience</h2>
-            <p className="text-center md:text-left text-slate-500 mb-12">Professional history and independent works.</p>
-            <div className="flex flex-col mt-12">
-                {/* 3 sections */}
+            <h2 className="font-display text-3xl font-semibold tracking-tight text-ink mb-2">Experience</h2>
+            <p className="text-sm text-ink-soft mb-10">Professional history and independent works.</p>
+            <div className="relative flex flex-col gap-10 pl-8 sm:pl-10">
+                {/* spine */}
+                <div className="absolute left-2.5 sm:left-3 top-3 bottom-3 w-0.5 bg-line"></div>
                 {
                     timeline.map(data => {
                         return (
-                            <div key={data.date} className="flex flex-col md:flex-row gap-6 items-stretch">
-                                <div className="flex flex-col flex-2 text-center md:text-left md:mb-12 pt-5">
-                                    <p className="font-bold text-xl">{data.title}</p>
-                                    <p className="font-light">{`${data.comapny} • ${data.location}`}</p>
-                                    <p className="font-medium">{data.date}</p>
+                            <div key={data.date} className="relative">
+                                <div className="absolute -left-8 sm:-left-10 top-6 w-6 h-6 rounded-full bg-accent/15 flex items-center justify-center">
+                                    <span className="w-2 h-2 rounded-full bg-accent"></span>
                                 </div>
-                                <LineWithDot />
-                                <div className="flex-5 bg-white p-6 rounded-3xl shadow mb-12">
-                                    <ul className="list-disc list-inside">
+                                <div className="glass-card rounded-2xl p-6 flex flex-col gap-5">
+                                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                                        <div>
+                                            <h3 className="font-display text-xl font-semibold text-ink">{data.title}</h3>
+                                            <p className="text-sm font-medium text-accent">{`${data.comapny} • ${data.location}`}</p>
+                                        </div>
+                                        <span className="w-fit px-3 py-1 rounded-full bg-chip font-mono text-xs text-ink-soft">{data.date}</span>
+                                    </div>
+                                    <ul className="flex flex-col gap-3 text-sm leading-relaxed text-ink-soft">
                                         {
-                                            data.duties.map(duty => 
-                                                <li key={duty} className="pb-4">{duty}</li>
+                                            data.duties.map(duty =>
+                                                <li key={duty} className="flex items-start gap-3">
+                                                    <FiCheckCircle className="text-accent shrink-0 mt-1" size={16}/>
+                                                    <span>{duty}</span>
+                                                </li>
                                             )
                                         }
                                     </ul>
-                                    {
-                                        data.skillSet.map(skill =>
-                                            <span key={skill} className="inline-block bg-emerald-600 text-white px-3 py-1 rounded-full text-sm font-medium mr-2 mt-4">{skill}</span>
-                                        )
-                                    }
+                                    <div className="flex flex-wrap gap-1.5">
+                                        {
+                                            data.skillSet.map(skill =>
+                                                <span key={skill} className="tech-chip">{skill}</span>
+                                            )
+                                        }
+                                    </div>
                                 </div>
                             </div>
                         )
@@ -38,14 +49,4 @@ export default function TimelineSection(){
             </div>
         </div>
       </section>
-}
-
-function LineWithDot(){
-    return (
-        <div className="md:flex flex-col items-center shrink-0 hidden">
-            <div className="w-0.5 flex-1 bg-emerald-600"></div>
-            <div className="w-4 h-4 rounded-full border-emerald-600 border-2 shrink-0"></div>
-            <div className="w-0.5 flex-10 bg-emerald-600"></div>
-        </div>
-    )
 }

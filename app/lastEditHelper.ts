@@ -1,6 +1,4 @@
-// The site is built with `output: "export"`, so anything resolved on the server is
-// frozen at build time. These helpers run on the server for the initial HTML and again
-// in the browser (see ProjectDates) so the dates stay current between deployments.
+// GitHub commit-date lookups, used at build time and again in the browser.
 
 export const PORTFOLIO_REPO = "Haolinc/haolin-portfolio";
 
